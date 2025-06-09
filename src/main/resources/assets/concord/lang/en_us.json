@@ -1,0 +1,114 @@
+{
+  "itemGroup.helmet": "Concord Helmets",
+  "itemGroup.bulletproof": "Concord Bulletproofs",
+  "itemGroup.blocks": "Concord Blocks",
+  "itemGroup.items": "Concord Items",
+  "block.concord.workbench": "Workbench",
+
+  "block.concord.workbench_plate": "Plate Workbench",
+  "block.concord.workbench_brf": "Bulletproof Workbench",
+  "block.concord.workbench_hlmt": "Helmet Workbench",
+
+  "item.concord.iron_plate": "Iron Plate",
+  "item.concord.diamond_plate": "Diamond Plate",
+  "item.concord.nether_plate": "Nether Plate",
+
+  "item.concord.nato": "Combined arms body armor",
+  "tooltip.nato": "You're in the army now",
+
+  "item.concord.nato_ii": "Assault Combined arms body armor",
+  "tooltip.nato_ii": "Johnny, get your gun",
+
+  "item.concord.marine": "MarineRaiders Bulletproof",
+  "tooltip.marine": "Gung-ho!",
+
+  "item.concord.guard": "Guard Bulletproof",
+  "tooltip.guard": "Always Ready, Always There!",
+
+  "item.concord.saper": "Saper Bulletproof",
+  "tooltip.saper": "Хозяин этого бронежилета очень не любил криперов",
+
+  "item.concord.vanderer": "Vanderer Bulletproof",
+  "tooltip.vanderer": "Он устал бродить по пустыне",
+
+  "item.concord.defender": "Defender Bulletproof",
+  "tooltip.defender": "",
+
+  "item.concord.defender_ii": "Assault defender Bulletproof",
+  "tooltip.defender_ii": "",
+
+  "item.concord.defender_iii": "Assault defender Bulletproof 2",
+  "tooltip.defender_iii": "",
+
+  "item.concord.concord": "Concord's Bulletproof",
+  "tooltip.concord": "Подписывайтесь на мой Twitch!",
+
+  "item.concord.medic": "Medic Bulletproof",
+  "tooltip.medic": "Герои не умирают!",
+
+  "item.concord.pmc": "PMC Kinder Bulletproof",
+  "tooltip.pmc": "Температура +50. Всё как мы любим!",
+
+  "item.concord.assault": "Assault Bulletproof",
+  "tooltip.assault": "Смертельный номер - взял укреп и чуть не помер",
+
+  "item.concord.horse": "715 Bulletproof",
+  "tooltip.horse": "Лучше уметь и не нуждаться, чем нуждаться и не уметь",
+
+  "item.concord.spn": "Speznaz Bulletproof",
+  "tooltip.spn": "Я - российский спецназ...",
+
+  "item.concord.atleti": "Atleti's Bulletproof",
+  "tooltip.atleti": "Простые Атлеты с периферии",
+
+  "item.concord.ratnik": "Ratnik Bulletproof",
+  "tooltip.ratnik": "Вот он я, привет войска",
+
+  "item.concord.ratnik_advance": "Ratnik 2 Bulletproof",
+  "tooltip.ratnik_advance": "415-ая база, ответьте",
+
+  "item.concord.veteran": "Ratnik Veteran Bulletproof",
+  "tooltip.veteran": "Заткнись, говно, я воевал",
+
+  "item.concord.nyyyaaaa": "Housemaid Bulletproof",
+  "tooltip.nyyyaaaa": "Каждый милитарист в глубине души маленькая девочка",
+
+  "item.concord.base_h": "Базовый Ops Core",
+  "tooltip.base_h": "",
+
+  "item.concord.assault_h": "Assault Helmet",
+  "tooltip.assault_h": "Произведено компанией ЦСС Волга",
+
+  "item.concord.gasmask_h": "Gas Mask Helmet",
+  "tooltip.gasmask_h": "Отравление? А что это такое?",
+
+  "item.concord.medic_h": "Medic Helmet",
+  "tooltip.medic_h": "С этим шлемом вы становитесь сексуальнее и лечите союзников",
+
+  "item.concord.concord_h": "Concord's Helmet",
+  "tooltip.concord_h": "Молодой. Специально утанкованный.",
+
+  "item.concord.infantry_h": "Пехотный Ops Core",
+  "tooltip.infantry_h": "",
+
+  "item.concord.gpnvg_h": "Black ops Helmet",
+  "tooltip.gpnvg_h": "Я больше не боюсь темноты!",
+
+  "item.concord.ghost_h": "Ghost's Helmet",
+  "tooltip.ghost_h": "Show my face?",
+
+  "item.concord.zch_h": "ЗШ-1-2",
+  "tooltip.zch_h": "",
+
+  "item.concord.zabralo_h": "ЗШ-1-2 с забралом",
+  "tooltip.zabralo_h": "Спецназ Тыла. Работаем!",
+
+  "item.concord.killa_h": "KIlla's Helmet",
+  "tooltip.killa_h": "И шлем у него такой.. не пропустишь.",
+
+  "item.concord.mk_ii_h": "МК-2",
+  "tooltip.mk_ii_h": "",
+
+  "item.concord.saper_h": "Сапёрный МК-2",
+  "tooltip.saper_h": "Не курить в шахте"
+}

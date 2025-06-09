@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "121",
+    "434"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:spruce_slab"
+    },
+    "1": {
+      "item": "minecraft:spruce_fence"
+    },
+    "2": {
+      "item": "minecraft:iron_axe"
+    },
+    "3": {
+      "item": "minecraft:anvil"
+    },
+    "4": {
+      "item": "minecraft:stripped_spruce_log"
+    }
+  },
+  "result": {
+    "item": "concord:workbench",
+    "count": 1
+  }
+}

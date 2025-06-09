@@ -1,0 +1,2248 @@
+{
+  "armors": [
+    {
+      "id": "nato",
+      "slot": "CHEST",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nato_ii",
+      "slot": "CHEST",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "marine",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "vanderer",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "guard",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "saper",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "defender",
+      "slot": "CHEST",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "defender_ii",
+      "slot": "CHEST",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "defender_iii",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "concord",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "medic",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pmc",
+      "slot": "CHEST",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "assault",
+      "slot": "CHEST",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "spn",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "horse",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "atleti",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ratnik",
+      "slot": "CHEST",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ratnik_advance",
+      "slot": "CHEST",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "veteran",
+      "slot": "CHEST",
+      "rarity": "RARE",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nyyyaaaa",
+      "slot": "CHEST",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -1,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              -0.6,
+              -0.5,
+              0
+            ],
+            "rotate": [
+              0,
+              180,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "base_h",
+      "slot": "HEAD",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gasmask_h",
+      "slot": "HEAD",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "assault_h",
+      "slot": "HEAD",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "medic_h",
+      "slot": "HEAD",
+      "rarity": "RARE",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "concord_h",
+      "slot": "HEAD",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "infantry_h",
+      "slot": "HEAD",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpnvg_h",
+      "slot": "HEAD",
+      "rarity": "RARE",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ghost_h",
+      "slot": "HEAD",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zch_h",
+      "slot": "HEAD",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "zabralo_h",
+      "slot": "HEAD",
+      "rarity": "RARE",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "killa_h",
+      "slot": "HEAD",
+      "rarity": "EPIC",
+      "material": {
+        "name": "hard",
+        "defense": 10,
+        "toughness": 10,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "mk_ii_h",
+      "slot": "HEAD",
+      "rarity": "COMMON",
+      "material": {
+        "name": "common",
+        "defense": 8,
+        "toughness": 0,
+        "knockbackResistance": 0
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "saper_h",
+      "slot": "HEAD",
+      "rarity": "UNCOMMON",
+      "material": {
+        "name": "heavy",
+        "defense": 9,
+        "toughness": 5,
+        "knockbackResistance": 1
+      },
+      "transform": [
+        {
+          "type": "ARMOR",
+          "matrix": {
+            "translate": [
+              0,
+              -1.54,
+              0
+            ],
+            "rotate": [
+              0,
+              0,
+              180
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "type": "WORKBENCH",
+          "matrix": {
+            "translate": [
+              0,
+              -2,
+              0
+            ],
+            "scale": [
+              50,
+              -50,
+              50
+            ]
+          }
+        },
+        {
+          "type": "GUI",
+          "matrix": {
+            "translate": [
+              0,
+              -1.3,
+              0.7
+            ],
+            "rotate": [
+              0,
+              90,
+              0
+            ],
+            "scale": [
+              0.8,
+              0.8,
+              0.8
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
