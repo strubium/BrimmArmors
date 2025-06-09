@@ -26,10 +26,10 @@
   "tooltip.guard": "Always Ready, Always There!",
 
   "item.concord.saper": "Saper Bulletproof",
-  "tooltip.saper": "Хозяин этого бронежилета очень не любил криперов",
+  "tooltip.saper": "The owner of this bulletproof vest really didn't like creepers.",
 
   "item.concord.vanderer": "Vanderer Bulletproof",
-  "tooltip.vanderer": "Он устал бродить по пустыне",
+  "tooltip.vanderer": "Wandering in the desert...",
 
   "item.concord.defender": "Defender Bulletproof",
   "tooltip.defender": "",
@@ -41,74 +41,74 @@
   "tooltip.defender_iii": "",
 
   "item.concord.concord": "Concord's Bulletproof",
-  "tooltip.concord": "Подписывайтесь на мой Twitch!",
+  "tooltip.concord": "",
 
   "item.concord.medic": "Medic Bulletproof",
-  "tooltip.medic": "Герои не умирают!",
+  "tooltip.medic": "Heroes never die!",
 
   "item.concord.pmc": "PMC Kinder Bulletproof",
-  "tooltip.pmc": "Температура +50. Всё как мы любим!",
+  "tooltip.pmc": "Temperature +50. Everything we love!",
 
   "item.concord.assault": "Assault Bulletproof",
-  "tooltip.assault": "Смертельный номер - взял укреп и чуть не помер",
+  "tooltip.assault": "A deadly trick - he took the fort and almost died",
 
   "item.concord.horse": "715 Bulletproof",
-  "tooltip.horse": "Лучше уметь и не нуждаться, чем нуждаться и не уметь",
+  "tooltip.horse": "It is better to be able and not need, than to need and not be able",
 
-  "item.concord.spn": "Speznaz Bulletproof",
-  "tooltip.spn": "Я - российский спецназ...",
+  "item.concord.spn": "SPN13 Bulletproof",
+  "tooltip.spn": "Standard Issue",
 
   "item.concord.atleti": "Atleti's Bulletproof",
-  "tooltip.atleti": "Простые Атлеты с периферии",
+  "tooltip.atleti": "Simple Athletes from the Periphery",
 
   "item.concord.ratnik": "Ratnik Bulletproof",
-  "tooltip.ratnik": "Вот он я, привет войска",
+  "tooltip.ratnik": "Here I am, hello troops",
 
   "item.concord.ratnik_advance": "Ratnik 2 Bulletproof",
-  "tooltip.ratnik_advance": "415-ая база, ответьте",
+  "tooltip.ratnik_advance": "415th base, please respond",
 
   "item.concord.veteran": "Ratnik Veteran Bulletproof",
-  "tooltip.veteran": "Заткнись, говно, я воевал",
+  "tooltip.veteran": "Shut up, I fought",
 
   "item.concord.nyyyaaaa": "Housemaid Bulletproof",
-  "tooltip.nyyyaaaa": "Каждый милитарист в глубине души маленькая девочка",
+  "tooltip.nyyyaaaa": "Every militarist is a little girl at heart",
 
-  "item.concord.base_h": "Базовый Ops Core",
+  "item.concord.base_h": "Special Ops Core",
   "tooltip.base_h": "",
 
   "item.concord.assault_h": "Assault Helmet",
-  "tooltip.assault_h": "Произведено компанией ЦСС Волга",
+  "tooltip.assault_h": "Produced by the company CSS Volga",
 
   "item.concord.gasmask_h": "Gas Mask Helmet",
-  "tooltip.gasmask_h": "Отравление? А что это такое?",
+  "tooltip.gasmask_h": "Poisoning? What is that?",
 
   "item.concord.medic_h": "Medic Helmet",
-  "tooltip.medic_h": "С этим шлемом вы становитесь сексуальнее и лечите союзников",
+  "tooltip.medic_h": "This helmet makes you sexier and heals your allies.",
 
   "item.concord.concord_h": "Concord's Helmet",
-  "tooltip.concord_h": "Молодой. Специально утанкованный.",
+  "tooltip.concord_h": "Specially tanked.",
 
-  "item.concord.infantry_h": "Пехотный Ops Core",
+  "item.concord.infantry_h": "Special Ops Core",
   "tooltip.infantry_h": "",
 
-  "item.concord.gpnvg_h": "Black ops Helmet",
-  "tooltip.gpnvg_h": "Я больше не боюсь темноты!",
+  "item.concord.gpnvg_h": "Black Ops Helmet",
+  "tooltip.gpnvg_h": "I'm not afraid of the dark anymore!",
 
   "item.concord.ghost_h": "Ghost's Helmet",
   "tooltip.ghost_h": "Show my face?",
 
-  "item.concord.zch_h": "ЗШ-1-2",
+  "item.concord.zch_h": "ZSH12",
   "tooltip.zch_h": "",
 
-  "item.concord.zabralo_h": "ЗШ-1-2 с забралом",
-  "tooltip.zabralo_h": "Спецназ Тыла. Работаем!",
+  "item.concord.zabralo_h": "ZSH12 w/ Visor",
+  "tooltip.zabralo_h": "Special Forces. We are working!",
 
-  "item.concord.killa_h": "KIlla's Helmet",
-  "tooltip.killa_h": "И шлем у него такой.. не пропустишь.",
+  "item.concord.killa_h": "Killa's Helmet",
+  "tooltip.killa_h": "And his helmet is so... you can't miss it.",
 
   "item.concord.mk_ii_h": "МК-2",
   "tooltip.mk_ii_h": "",
 
-  "item.concord.saper_h": "Сапёрный МК-2",
-  "tooltip.saper_h": "Не курить в шахте"
+  "item.concord.saper_h": "Saper MK-2",
+  "tooltip.saper_h": "No smoking in the mines"
 }
