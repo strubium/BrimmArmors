@@ -43,6 +43,11 @@ public class LootTableEventHandler {
         addEntry(LootTables.VILLAGE_SAVANNA_HOUSE, new LootEntryData("saper", 7, 1, 1));
     }
 
+    public static void addEntry(String lootTableName, LootEntryData entry) {
+        ResourceLocation tableId = new ResourceLocation(lootTableName);
+        addEntry(tableId, entry);
+    }
+
     private static void addEntry(ResourceLocation table, LootEntryData entry) {
         LOOT_TABLE_ENTRIES.computeIfAbsent(table, k -> new ArrayList<>()).add(entry);
     }

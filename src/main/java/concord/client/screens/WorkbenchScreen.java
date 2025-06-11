@@ -37,8 +37,8 @@ public class WorkbenchScreen extends Screen {
     protected Minecraft mc;
     protected RecipesManager.CraftType craftType;
 
-    protected int imageWidth = 250;
-    protected int imageHeight = 180;
+    protected final int imageWidth = 250;
+    protected final int imageHeight = 180;
     protected int leftPos;
     protected int topPos;
 
