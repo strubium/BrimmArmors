@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.resources.IResource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.lwjgl.opengl.GL32;
@@ -41,8 +42,8 @@ public class WavefrontObject implements IModelCustom {
     private static Matcher face_V_Matcher;
     private static Matcher groupObjectMatcher;
     private final String fileName;
-    public ArrayList<Vertex> vertices = new ArrayList<>();
-    public ArrayList<Vertex> vertexNormals = new ArrayList<>();
+    public ArrayList<Vector3f> vertices = new ArrayList<>();
+    public ArrayList<Vector3f> vertexNormals = new ArrayList<>();
     public ArrayList<TextureCoordinate> textureCoordinates = new ArrayList<>();
     public ArrayList<GroupObject> groupObjects = new ArrayList<>();
     private GroupObject currentGroupObject;
@@ -148,7 +149,7 @@ public class WavefrontObject implements IModelCustom {
                 ++lineCount;
                 currentLine = currentLine.replaceAll("\\s+", " ").trim();
                 if (!currentLine.startsWith("#") && currentLine.length() != 0) {
-                    Vertex vertex;
+                    Vector3f vertex;
                     if (currentLine.startsWith("v ")) {
                         vertex = this.parseVertex(currentLine, lineCount);
                         if (vertex != null) {
@@ -266,16 +267,16 @@ public class WavefrontObject implements IModelCustom {
         }
     }
 
-    private Vertex parseVertex(String line, int lineCount) throws ModelFormatException {
+    private Vector3f parseVertex(String line, int lineCount) throws ModelFormatException {
         if (isValidVertexLine(line)) {
             line = line.substring(line.indexOf(" ") + 1);
             String[] tokens = line.split(" ");
 
             try {
                 if (tokens.length == 2) {
-                    return new Vertex(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]));
+                    return new Vector3f(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]), 0.0f);
                 } else {
-                    return tokens.length == 3 ? new Vertex(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]), Float
+                    return tokens.length == 3 ? new Vector3f(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]), Float
                             .parseFloat(tokens[2])) : null;
                 }
             } catch (NumberFormatException var5) {
@@ -286,13 +287,13 @@ public class WavefrontObject implements IModelCustom {
         }
     }
 
-    private Vertex parseVertexNormal(String line, int lineCount) throws ModelFormatException {
+    private Vector3f parseVertexNormal(String line, int lineCount) throws ModelFormatException {
         if (isValidVertexNormalLine(line)) {
             line = line.substring(line.indexOf(" ") + 1);
             String[] tokens = line.split(" ");
 
             try {
-                return tokens.length == 3 ? new Vertex(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])) : null;
+                return tokens.length == 3 ? new Vector3f(Float.parseFloat(tokens[0]), Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])) : null;
             } catch (NumberFormatException var5) {
                 throw new ModelFormatException(String.format("Number formatting error at line %d", lineCount), var5);
             }
@@ -343,9 +344,9 @@ public class WavefrontObject implements IModelCustom {
             String[] subTokens;
             int i;
             if (isValidFace_V_VT_VN_Line(line)) {
-                face.vertices = new Vertex[tokens.length];
+                face.vertices = new Vector3f[tokens.length];
                 face.textureCoordinates = new TextureCoordinate[tokens.length];
-                face.vertexNormals = new Vertex[tokens.length];
+                face.vertexNormals = new Vector3f[tokens.length];
 
                 for (i = 0; i < tokens.length; ++i) {
                     subTokens = tokens[i].split("/");
@@ -356,7 +357,7 @@ public class WavefrontObject implements IModelCustom {
 
                 face.faceNormal = face.calculateFaceNormal();
             } else if (isValidFace_V_VT_Line(line)) {
-                face.vertices = new Vertex[tokens.length];
+                face.vertices = new Vector3f[tokens.length];
                 face.textureCoordinates = new TextureCoordinate[tokens.length];
 
                 for (i = 0; i < tokens.length; ++i) {
@@ -367,8 +368,8 @@ public class WavefrontObject implements IModelCustom {
 
                 face.faceNormal = face.calculateFaceNormal();
             } else if (isValidFace_V_VN_Line(line)) {
-                face.vertices = new Vertex[tokens.length];
-                face.vertexNormals = new Vertex[tokens.length];
+                face.vertices = new Vector3f[tokens.length];
+                face.vertexNormals = new Vector3f[tokens.length];
 
                 for (i = 0; i < tokens.length; ++i) {
                     subTokens = tokens[i].split("//");
@@ -382,7 +383,7 @@ public class WavefrontObject implements IModelCustom {
                     throw new ModelFormatException("Error parsing entry ('" + line + "', line " + lineCount + ") in file '" + this.fileName + "' - Incorrect format");
                 }
 
-                face.vertices = new Vertex[tokens.length];
+                face.vertices = new Vector3f[tokens.length];
 
                 for (i = 0; i < tokens.length; ++i) {
                     face.vertices[i] = this.vertices.get(Integer.parseInt(tokens[i]) - 1);
