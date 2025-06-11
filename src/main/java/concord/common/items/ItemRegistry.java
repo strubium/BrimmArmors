@@ -1,8 +1,6 @@
 package concord.common.items;
 
 import concord.Concord;
-import concord.client.render.Transform;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -27,9 +25,9 @@ public class ItemRegistry {
                 .orElseThrow(() -> new IllegalArgumentException("No armor found with id: " + id));
     }
 
-    public static final RegistryObject<BasicPlate> iron_plate = ITEMS.register("iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
-    public static final RegistryObject<BasicPlate> diamond_plate = ITEMS.register("diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
-    public static final RegistryObject<BasicPlate> nether_plate = ITEMS.register("nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
+    public static final RegistryObject<BasicPlate> IRON_PLATE = ITEMS.register("iron_plate", () -> new BasicPlate(ConcordRarity.COMMON));
+    public static final RegistryObject<BasicPlate> DIAMOND_PLATE = ITEMS.register("diamond_plate", () -> new BasicPlate(ConcordRarity.RARE));
+    public static final RegistryObject<BasicPlate> NETHER_PLATE = ITEMS.register("nether_plate", () -> new BasicPlate(ConcordRarity.EPIC));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

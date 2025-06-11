@@ -40,7 +40,7 @@ public class Resources {
     public static final ItemGroup ITEMS = new ItemGroup("items") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.iron_plate.get());
+            return new ItemStack(ItemRegistry.IRON_PLATE.get());
         }
     };
 
