@@ -31,7 +31,7 @@ public class BasicArmor extends ArmorItem implements IModel, IRarity {
     private Transform transform;
 
     public BasicArmor(String model, EquipmentSlotType type, ConcordRarity rarity, ConcordArmorMaterial material) {
-        super(material, type, new Properties().durability(-1).tab(Resources.getArmorTab(type)));
+        super(material, type, new Properties().durability(material.getDurabilityForSlot(null)).tab(Resources.getArmorTab(type)));
         if (type == EquipmentSlotType.CHEST) {
             this.model = "chestplate/" + model;
             this.texture = Resources.path(String.format("textures/chestplate/%s.png", model));

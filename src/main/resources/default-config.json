@@ -8,7 +8,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -76,7 +77,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -144,7 +146,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -212,7 +215,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -280,7 +284,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -348,7 +353,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -416,7 +422,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -484,7 +491,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -552,7 +560,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -620,7 +629,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -688,7 +698,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -756,7 +767,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -824,7 +836,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -892,7 +905,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -960,7 +974,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1028,7 +1043,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1096,7 +1112,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -1164,7 +1181,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1232,7 +1250,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1300,7 +1319,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1368,7 +1388,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -1436,7 +1457,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1504,7 +1526,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1572,7 +1595,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1640,7 +1664,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1708,7 +1733,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -1776,7 +1802,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1844,7 +1871,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -1912,7 +1940,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -1980,7 +2009,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -2048,7 +2078,8 @@
         "name": "hard",
         "defense": 10,
         "toughness": 10,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {
@@ -2116,7 +2147,8 @@
         "name": "common",
         "defense": 8,
         "toughness": 0,
-        "knockbackResistance": 0
+        "knockbackResistance": 0,
+        "durability": 240
       },
       "transform": [
         {
@@ -2184,7 +2216,8 @@
         "name": "heavy",
         "defense": 9,
         "toughness": 5,
-        "knockbackResistance": 1
+        "knockbackResistance": 1,
+        "durability": 240
       },
       "transform": [
         {

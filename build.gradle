@@ -49,11 +49,15 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-
+    flatDir {
+        dir 'libs'
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation fg.deobf("xaero:ItemNBTViewer-Forge-1.16.5:1.0")
+
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

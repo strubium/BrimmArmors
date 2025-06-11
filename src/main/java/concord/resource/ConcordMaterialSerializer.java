@@ -5,6 +5,7 @@ import concord.common.items.ConcordArmorMaterial;
 import net.minecraft.util.SoundEvents;
 
 import java.lang.reflect.Type;
+import java.util.Objects;
 
 public class ConcordMaterialSerializer implements JsonDeserializer<ConcordArmorMaterial>, JsonSerializer<ConcordArmorMaterial> {
 
@@ -14,7 +15,8 @@ public class ConcordMaterialSerializer implements JsonDeserializer<ConcordArmorM
                 jsonElement.getAsJsonObject().get("name").getAsString(),
                 jsonElement.getAsJsonObject().get("defense").getAsInt(),
                 jsonElement.getAsJsonObject().get("toughness").getAsFloat(),
-                jsonElement.getAsJsonObject().get("knockbackResistance").getAsFloat()
+                jsonElement.getAsJsonObject().get("knockbackResistance").getAsFloat(),
+                Objects.requireNonNull(jsonElement.getAsJsonObject().get("durability"), "durability is null!").getAsInt()
         );
     }
 
@@ -25,6 +27,7 @@ public class ConcordMaterialSerializer implements JsonDeserializer<ConcordArmorM
         obj.addProperty("defense", concordArmorMaterial.getDefenseForSlot(null)); // null because we don't care about the slot here
         obj.addProperty("toughness", concordArmorMaterial.getToughness());
         obj.addProperty("knockbackResistance", concordArmorMaterial.getKnockbackResistance());
+        obj.addProperty("durability", concordArmorMaterial.getDurabilityForSlot(null));
         return obj;
     }
 }
