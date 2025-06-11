@@ -27,7 +27,7 @@ public class ConcordMaterialSerializer implements JsonDeserializer<ConcordArmorM
         obj.addProperty("defense", concordArmorMaterial.getDefenseForSlot(null)); // null because we don't care about the slot here
         obj.addProperty("toughness", concordArmorMaterial.getToughness());
         obj.addProperty("knockbackResistance", concordArmorMaterial.getKnockbackResistance());
-        obj.addProperty("durability", 240);
+        obj.addProperty("durability", concordArmorMaterial.getDurabilityForSlot(null));
         return obj;
     }
 }
