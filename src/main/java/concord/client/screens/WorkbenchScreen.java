@@ -1,7 +1,6 @@
 package concord.client.screens;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import concord.Concord;
 import concord.client.ClientProxy;
@@ -24,7 +23,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -35,8 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkbenchScreen extends Screen {
-
-    protected final ResourceLocation CONTAINER = new ResourceLocation(Concord.MOD_ID, "textures/container/workbench.png");
 
     protected Minecraft mc;
     protected RecipesManager.CraftType craftType;
@@ -63,6 +59,7 @@ public class WorkbenchScreen extends Screen {
     protected boolean rotating = false;
     protected long lastRotationTime = 0;
     protected long rotationDelay = 800;
+
     public WorkbenchScreen(RecipesManager.CraftType craftType) {
         super(new StringTextComponent("Workbench"));
         this.mc = Minecraft.getInstance();
@@ -227,7 +224,7 @@ public class WorkbenchScreen extends Screen {
                     }
                     if (tooltipFromItem.size() <= 2) break;
                     if (i == 1) {
-                        String formatting = TextFormatting.ITALIC.toString() + rarity.color.toString();
+                        String formatting = TextFormatting.ITALIC + rarity.color.toString();
                         String string = iTextComponent.getString();
                         if (string.length() > 40) {
                             int splitPos = string.lastIndexOf(" ", 40);
@@ -281,32 +278,41 @@ public class WorkbenchScreen extends Screen {
         return mc.player.inventory.countItem(ingredient.item);
     }
 
-    protected void renderResult(int x, int y, float particleTick) {
-        RenderSystem.pushMatrix();
-        RenderSystem.enableRescaleNormal();
-        RenderSystem.enableAlphaTest();
-        RenderSystem.defaultAlphaFunc();
-        RenderSystem.enableBlend();
-        RenderSystem.enableDepthTest();
-        RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
-        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+    protected void renderResult(int x, int y, float partialTicks) {
+        MatrixStack matrixStack = new MatrixStack();
+        matrixStack.pushPose();
 
-        MatrixStack matrixstack = new MatrixStack();
-        matrixstack.translate(x, y, 200);
-        renderModel.getTransform().WORKBENCH.setup(matrixstack);
+        // Position in GUI
+        matrixStack.translate(x, y, 200);
+
+        // Setup model transform (custom transform defined by your model)
+        renderModel.getTransform().WORKBENCH.setup(matrixStack);
+
+        // Smooth rotation between previous and current angle
+        float smoothAngle = prevAngle + (angle - prevAngle) * partialTicks;
+        matrixStack.mulPose(Vector3f.YP.rotationDegrees(smoothAngle));
+
         if (itemRecipe.result instanceof BlockItem) {
-            matrixstack.mulPose(Vector3f.YP.rotationDegrees(prevAngle + (angle - prevAngle) * particleTick));
-            matrixstack.translate(0.5, -0.5, 0);
-        } else {
-            matrixstack.mulPose(Vector3f.YP.rotationDegrees(prevAngle + (angle - prevAngle) * particleTick));
+            matrixStack.translate(0.5, -0.5, 0);
         }
 
+        // Bind texture for the model
         mc.getTextureManager().bind(renderModel.getTexture());
-        ClientProxy.getModel(renderModel.getModel()).renderAll(matrixstack);
 
-        RenderSystem.disableAlphaTest();
-        RenderSystem.disableRescaleNormal();
-        RenderSystem.popMatrix();
+        // Enable blending and depth testing for proper rendering
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.enableDepthTest();
+
+        // Render the model with the matrix stack
+        ClientProxy.getModel(renderModel.getModel()).renderAll(matrixStack);
+
+        // Cleanup
+        matrixStack.popPose();
+
+        // Disable blend and depth test if necessary (optional depending on render context)
+        RenderSystem.disableBlend();
+        RenderSystem.disableDepthTest();
     }
 
 }
