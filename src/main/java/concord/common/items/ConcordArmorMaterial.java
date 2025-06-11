@@ -6,16 +6,18 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
+import javax.annotation.Nullable;
+
 public class ConcordArmorMaterial implements IArmorMaterial {
 
     public static final ConcordArmorMaterial common = new ConcordArmorMaterial(
-            SoundEvents.ARMOR_EQUIP_GENERIC, "common", 8, 0.0f, 0.0f);
+            SoundEvents.ARMOR_EQUIP_GENERIC, "common", 8, 0.0f, 0.0f, 240);
 
     public static final ConcordArmorMaterial heavy = new ConcordArmorMaterial(
-            SoundEvents.ARMOR_EQUIP_GENERIC, "heavy", 9, 5.0f, 1.0f);
+            SoundEvents.ARMOR_EQUIP_GENERIC, "heavy", 9, 5.0f, 1.0f, 528);
 
     public static final ConcordArmorMaterial hard = new ConcordArmorMaterial(
-            SoundEvents.ARMOR_EQUIP_GENERIC, "hard", 10, 10.0f, 1.0f);
+            SoundEvents.ARMOR_EQUIP_GENERIC, "hard", 10, 10.0f, 1.0f, 528);
 
     private final int durability;
     private final int defense;
@@ -26,8 +28,8 @@ public class ConcordArmorMaterial implements IArmorMaterial {
     private final float toughness;
     private final float knockbackResistance;
 
-    public ConcordArmorMaterial(SoundEvent sound, String name, int defense, float toughness, float knockbackResistance) {
-        this.durability = 0;
+    public ConcordArmorMaterial(SoundEvent sound, String name, int defense, float toughness, float knockbackResistance, int durability) {
+        this.durability = durability;
         this.enchantment = 0;
         this.ingredient = Ingredient.EMPTY;
         this.sound = sound;
@@ -38,7 +40,7 @@ public class ConcordArmorMaterial implements IArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForSlot(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(@Nullable EquipmentSlotType slot) {
         return durability;
     }
 
