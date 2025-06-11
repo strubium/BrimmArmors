@@ -11,10 +11,10 @@ import static concord.common.items.ItemRegistry.get;
 
 public class Resources {
 
-    public static ResourceLocation workbench = path("textures/workbench/workbench.png");
-    public static ResourceLocation workbench_plate = path("textures/workbench/workbench_plate.png");
-    public static ResourceLocation workbench_brf = path("textures/workbench/workbench_brf.png");
-    public static ResourceLocation workbench_hlmt = path("textures/workbench/workbench_hlmt.png");
+    public static final ResourceLocation WORKBENCH_BASIC_TEXTURE = path("textures/workbench/workbench.png");
+    public static final ResourceLocation WORKBENCH_PLATE_TEXTURE = path("textures/workbench/workbench_plate.png");
+    public static final ResourceLocation WORKBENCH_BRF_TEXTURE = path("textures/workbench/workbench_brf.png");
+    public static final ResourceLocation WORKBENCH_HLMT_TEXTURE = path("textures/workbench/workbench_hlmt.png");
 
     public static final ItemGroup HELMET = new ItemGroup("helmet") {
         @Override
