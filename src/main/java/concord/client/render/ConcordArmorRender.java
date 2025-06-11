@@ -9,8 +9,6 @@ import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.vector.Vector3f;
 
 public class ConcordArmorRender extends BipedModel<LivingEntity> {
 

@@ -1,14 +1,12 @@
 package concord.effects;
 
 import concord.common.items.BasicArmor;
-import concord.common.items.ItemRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.INBT;
 import net.minecraft.potion.EffectInstance;

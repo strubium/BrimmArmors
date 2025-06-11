@@ -1,7 +1,6 @@
 package concord.common.tile;
 
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.AxisAlignedBB;
 
 public class WorkbenchTileEntity extends TileEntity {
