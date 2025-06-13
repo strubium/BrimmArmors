@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SetWorkbenchScreenS2C extends SimplePacket {
     RecipesManager.CraftType craftType;
+
     public SetWorkbenchScreenS2C(RecipesManager.CraftType type) {
         this.craftType = type;
     }

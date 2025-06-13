@@ -47,7 +47,7 @@ public class WorkbenchScreen extends Screen {
     protected IModel renderModel;
 
     protected int craftSize;
-    protected int currentIndex = 0;
+    protected short currentIndex = 0;
 
     protected Button left;
     protected Button right;

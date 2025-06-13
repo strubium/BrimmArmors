@@ -1,5 +1,6 @@
 package concord.common.network.packets;
 
+import concord.Concord;
 import concord.common.network.SimplePacket;
 import concord.common.recipes.Ingredient;
 import concord.common.recipes.ItemRecipe;
@@ -14,75 +15,77 @@ import java.util.ArrayList;
 public class RequestCraftItem extends SimplePacket {
 
     public RecipesManager.CraftType craftType;
-    public int currentIndex;
+    public short currentIndex;
 
     public RequestCraftItem() {
 
     }
 
-    public RequestCraftItem(RecipesManager.CraftType craftType, int currentIndex) {
+    public RequestCraftItem(RecipesManager.CraftType craftType, short currentIndex) {
         this.craftType = craftType;
         this.currentIndex = currentIndex;
     }
 
     public static void read(RequestCraftItem msg, PacketBuffer packetBuffer) {
         packetBuffer.writeUtf(msg.craftType.getRecipeID());
-        packetBuffer.writeInt(msg.currentIndex);
+        packetBuffer.writeShort(msg.currentIndex);
     }
 
     public static RequestCraftItem write(PacketBuffer packetBuffer) {
-        return new RequestCraftItem(RecipesManager.CraftType.get(packetBuffer.readUtf()), packetBuffer.readInt());
+        return new RequestCraftItem(RecipesManager.CraftType.get(packetBuffer.readUtf()), packetBuffer.readShort());
     }
 
 
     @Override
     public void server(ServerPlayerEntity player) {
-        ArrayList<ItemRecipe> recipe = RecipesManager.getRecipe(craftType);
-        if (recipe != null) {
-            try {
-                PlayerInventory inventory = player.inventory;
-                ItemRecipe itemRecipe = recipe.get(currentIndex);
+        ArrayList<ItemRecipe> recipes = RecipesManager.getRecipe(craftType);
+        if (recipes == null || currentIndex < 0 || currentIndex >= recipes.size()) {
+            Concord.LOGGER.error("Someone is trying to craft something with a weird currentIndex!");
+            return;  // invalid request
+        }
 
-                boolean flag = true;
+        try {
+            PlayerInventory inventory = player.inventory;
+            ItemRecipe itemRecipe = recipes.get(currentIndex);
 
-                for (Ingredient ingredient : itemRecipe.ingredients) {
-                    if (ingredient.count > inventory.countItem(ingredient.item)) {
-                        flag = false;
-                        break;
-                    }
+            boolean flag = true;
+
+            for (Ingredient ingredient : itemRecipe.ingredients) {
+                if (ingredient.count > inventory.countItem(ingredient.item)) {
+                    flag = false;
+                    break;
                 }
+            }
 
-                if (flag) {
-                    for (Ingredient ingredient : itemRecipe.ingredients) {
-                        int countToRemove = ingredient.count;
-                        for (int i = 0; i < inventory.getContainerSize(); i++) {
-                            ItemStack stack = inventory.getItem(i);
-                            if (!stack.isEmpty() && stack.getItem() == ingredient.item) {
-                                int stackCount = stack.getCount();
-                                if (stackCount <= countToRemove) {
-                                    inventory.removeItem(i, stackCount);
-                                    countToRemove -= stackCount;
-                                } else {
-                                    inventory.removeItem(i, countToRemove);
-                                    countToRemove = 0;
-                                }
-                                if (countToRemove <= 0) {
-                                    break;
-                                }
+            if (flag) {
+                for (Ingredient ingredient : itemRecipe.ingredients) {
+                    int countToRemove = ingredient.count;
+                    for (int i = 0; i < inventory.getContainerSize(); i++) {
+                        ItemStack stack = inventory.getItem(i);
+                        if (!stack.isEmpty() && stack.getItem() == ingredient.item) {
+                            int stackCount = stack.getCount();
+                            if (stackCount <= countToRemove) {
+                                inventory.removeItem(i, stackCount);
+                                countToRemove -= stackCount;
+                            } else {
+                                inventory.removeItem(i, countToRemove);
+                                countToRemove = 0;
+                            }
+                            if (countToRemove <= 0) {
+                                break;
                             }
                         }
                     }
-                    ItemStack resultItem = new ItemStack(itemRecipe.result);
-                    if (!inventory.add(resultItem)) {
-                        player.drop(resultItem, false);
-                    }
                 }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+                ItemStack resultItem = new ItemStack(itemRecipe.result);
+                if (!inventory.add(resultItem)) {
+                    player.drop(resultItem, false);
+                }
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
 
+    }
 }
