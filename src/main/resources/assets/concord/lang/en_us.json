@@ -1,83 +1,83 @@
 {
   "itemGroup.helmet": "Concord Helmets",
-  "itemGroup.bulletproof": "Concord Bulletproofs",
+  "itemGroup.bulletproof": "Concord Body Armors",
   "itemGroup.blocks": "Concord Blocks",
   "itemGroup.items": "Concord Items",
   "block.concord.workbench": "Workbench",
 
   "block.concord.workbench_plate": "Plate Workbench",
-  "block.concord.workbench_brf": "Bulletproof Workbench",
+  "block.concord.workbench_brf": "Body Armor Workbench",
   "block.concord.workbench_hlmt": "Helmet Workbench",
 
   "item.concord.iron_plate": "Iron Plate",
   "item.concord.diamond_plate": "Diamond Plate",
   "item.concord.nether_plate": "Nether Plate",
 
-  "item.concord.nato": "Combined arms body armor",
+  "item.concord.nato": "Combined Arms Body Armor",
   "tooltip.nato": "You're in the army now",
 
-  "item.concord.nato_ii": "Assault Combined arms body armor",
+  "item.concord.nato_ii": "Assault Combined Arms Body Armor",
   "tooltip.nato_ii": "Johnny, get your gun",
 
-  "item.concord.marine": "MarineRaiders Bulletproof",
+  "item.concord.marine": "MarineRaiders Body Armor",
   "tooltip.marine": "Gung-ho!",
 
-  "item.concord.guard": "Guard Bulletproof",
+  "item.concord.guard": "Guard Body Armor",
   "tooltip.guard": "Always Ready, Always There!",
 
-  "item.concord.saper": "Saper Bulletproof",
-  "tooltip.saper": "The owner of this bulletproof vest really didn't like creepers.",
+  "item.concord.saper": "Saper Body Armor",
+  "tooltip.saper": "The owner of this Body Armor vest really didn't like creepers.",
 
-  "item.concord.vanderer": "Vanderer Bulletproof",
+  "item.concord.vanderer": "Vanderer Body Armor",
   "tooltip.vanderer": "Wandering in the desert...",
 
-  "item.concord.defender": "Defender Bulletproof",
+  "item.concord.defender": "Defender Body Armor",
   "tooltip.defender": "",
 
-  "item.concord.defender_ii": "Assault defender Bulletproof",
+  "item.concord.defender_ii": "Assault defender Body Armor",
   "tooltip.defender_ii": "",
 
-  "item.concord.defender_iii": "Assault defender Bulletproof 2",
+  "item.concord.defender_iii": "Assault defender Body Armor 2",
   "tooltip.defender_iii": "",
 
-  "item.concord.concord": "Concord's Bulletproof",
+  "item.concord.concord": "Concord's Body Armor",
   "tooltip.concord": "",
 
-  "item.concord.medic": "Medic Bulletproof",
+  "item.concord.medic": "Medic Body Armor",
   "tooltip.medic": "Heroes never die!",
 
-  "item.concord.pmc": "PMC Kinder Bulletproof",
+  "item.concord.pmc": "PMC Kinder Body Armor",
   "tooltip.pmc": "Temperature +50. Everything we love!",
 
-  "item.concord.assault": "Assault Bulletproof",
+  "item.concord.assault": "Assault Body Armor",
   "tooltip.assault": "A deadly trick - he took the fort and almost died",
 
-  "item.concord.horse": "715 Bulletproof",
+  "item.concord.horse": "517 Body Armor",
   "tooltip.horse": "It is better to be able and not need, than to need and not be able",
 
-  "item.concord.spn": "SPN13 Bulletproof",
+  "item.concord.spn": "Jagdkommando Body Armor",
   "tooltip.spn": "Standard Issue",
 
-  "item.concord.atleti": "Atleti's Bulletproof",
+  "item.concord.atleti": "Atleti's Body Armor",
   "tooltip.atleti": "Simple Athletes from the Periphery",
 
-  "item.concord.ratnik": "Ratnik Bulletproof",
+  "item.concord.ratnik": "Ratnik Body Armor",
   "tooltip.ratnik": "Here I am, hello troops",
 
-  "item.concord.ratnik_advance": "Ratnik 2 Bulletproof",
-  "tooltip.ratnik_advance": "415th base, please respond",
+  "item.concord.ratnik_advance": "Ratnik 2 Body Armor",
+  "tooltip.ratnik_advance": "Built-In Complaints Department",
 
-  "item.concord.veteran": "Ratnik Veteran Bulletproof",
+  "item.concord.veteran": "Ratnik Veteran Body Armor",
   "tooltip.veteran": "Shut up, I fought",
 
-  "item.concord.nyyyaaaa": "Housemaid Bulletproof",
+  "item.concord.nyyyaaaa": "Housemaid Body Armor",
   "tooltip.nyyyaaaa": "Every militarist is a little girl at heart",
 
   "item.concord.base_h": "Special Ops Core",
   "tooltip.base_h": "",
 
   "item.concord.assault_h": "Assault Helmet",
-  "tooltip.assault_h": "Produced by the company CSS Volga",
+  "tooltip.assault_h": "Brain Bucket Deluxe",
 
   "item.concord.gasmask_h": "Gas Mask Helmet",
   "tooltip.gasmask_h": "Poisoning? What is that?",
