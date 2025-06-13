@@ -41,7 +41,7 @@ public class GroupObject implements Comparable<GroupObject> {
         } else {
             this.first = false;
             GL32.glNewList(this.glListId, 4865);
-            if (this.faces.size() > 0) {
+            if (!this.faces.isEmpty()) {
                 Tessellator tessellator = Tessellator.getInstance();
                 BufferBuilder builder = tessellator.getBuilder();
                 builder.begin(this.glDrawingMode, DefaultVertexFormats.POSITION_TEX_COLOR_NORMAL);

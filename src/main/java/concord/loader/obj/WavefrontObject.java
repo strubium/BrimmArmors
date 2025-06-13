@@ -3,6 +3,7 @@ package concord.loader.obj;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import concord.Concord;
 import concord.loader.IModelCustom;
 import concord.loader.ModelFormatException;
 import net.minecraft.client.Minecraft;
@@ -192,11 +193,13 @@ public class WavefrontObject implements IModelCustom {
             try {
                 reader.close();
             } catch (IOException var15) {
+                Concord.LOGGER.error("Error closing reader!");
             }
 
             try {
                 inputStream.close();
             } catch (IOException var14) {
+                Concord.LOGGER.error("Error closing inputStream!");
             }
 
         }
@@ -402,7 +405,7 @@ public class WavefrontObject implements IModelCustom {
         GroupObject group = null;
         if (isValidGroupObjectLine(line)) {
             String trimmedLine = line.substring(line.indexOf(" ") + 1);
-            if (trimmedLine.length() > 0) {
+            if (!trimmedLine.isEmpty()) {
                 group = new GroupObject(trimmedLine);
             }
 

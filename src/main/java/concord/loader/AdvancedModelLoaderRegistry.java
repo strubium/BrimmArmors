@@ -24,7 +24,7 @@ public enum AdvancedModelLoaderRegistry {
         if (!this.models.containsKey(location.getPath())) {
             IModelCustom model = AdvancedModelLoader.loadModel(location);
             if (model == null) {
-                Concord.LOGGER.error(String.format("Could not load model %s, skipping", location));
+                Concord.LOGGER.error("Could not load model {}, skipping", location);
                 return null;
             } else {
                 this.models.put(location.getPath(), model);

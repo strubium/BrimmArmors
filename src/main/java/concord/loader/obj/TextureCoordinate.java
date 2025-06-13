@@ -1,5 +1,6 @@
 package concord.loader.obj;
 
+//TODO Smeagle, this is just a Vector3f, maybe we could replace it?
 public class TextureCoordinate {
 
     public float u;
