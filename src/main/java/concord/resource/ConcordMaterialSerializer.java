@@ -2,7 +2,7 @@ package concord.resource;
 
 import com.google.gson.*;
 import concord.common.items.ConcordArmorMaterial;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvents;
 
 import java.lang.reflect.Type;
 import java.util.Objects;

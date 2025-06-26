@@ -1,16 +1,9 @@
 package concord.effects;
 
 import concord.common.items.BasicArmor;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.INBT;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,10 +22,10 @@ public class EffectsManager {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
             ItemStack to = event.getTo();
             ItemStack from = event.getFrom();
-            if (event.getSlot() == EquipmentSlotType.HEAD) {
+            if (event.getSlot() == EquipmentSlot.HEAD) {
                 onAddHelmet(player, to);
             }
-            if (event.getSlot() == EquipmentSlotType.CHEST) {
+            if (event.getSlot() == EquipmentSlot.CHEST) {
                 onAddChest(player, to);
             }
             onRemove(player, from);

@@ -6,39 +6,40 @@ import concord.client.render.Transform;
 import concord.common.network.packets.SetWorkbenchScreenS2C;
 import concord.common.recipes.RecipesManager;
 import concord.common.tile.WorkbenchTileEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.Nullable;
-import java.util.ArrayList;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 public class WorkbenchBlock extends Block implements IModel {
 
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+
     public final RecipesManager.CraftType craftType;
     private final String model;
     private final ResourceLocation texture;
@@ -46,7 +47,7 @@ public class WorkbenchBlock extends Block implements IModel {
     private Transform transform;
 
     public WorkbenchBlock(String model, ResourceLocation texture, RecipesManager.CraftType craftType, int lightLevel) {
-        super(Properties.of(Material.STONE).strength(3.5F).noOcclusion());
+        super(Properties.of(Material.STONE).strength(3.5F).noOcclusion().lightLevel(state -> lightLevel));
         this.craftType = craftType;
         this.model = "workbench/" + model;
         this.texture = texture;
@@ -55,40 +56,36 @@ public class WorkbenchBlock extends Block implements IModel {
     }
 
     @Override
-    public List<ItemStack> getDrops(BlockState p_220076_1_, LootContext.Builder p_220076_2_) {
-        return new ArrayList<ItemStack>() {{
-            add(new ItemStack(WorkbenchBlock.this));
-        }};
+    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+        // Returning a single copy of this block as drop
+        return List.of(new ItemStack(this));
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
 
     @Override
-    public int getLightValue(BlockState state, IBlockReader world, BlockPos pos) {
-        return lightLevel;
-    }
-
-    @SuppressWarnings({"deprecation", "NullableProblems"})
-    @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult ray) {
+    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!world.isClientSide()) {
-            ServerPlayerEntity sv = (ServerPlayerEntity) player;
-            Concord.network.sendTo(new SetWorkbenchScreenS2C(craftType), sv);
+            if (player instanceof ServerPlayer serverPlayer) {
+                Concord.network.sendTo(new SetWorkbenchScreenS2C(craftType), serverPlayer);
+            }
+            return InteractionResult.CONSUME;
         }
-        return super.use(state, world, pos, player, hand, ray);
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        PlayerEntity player = context.getPlayer();
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        Player player = context.getPlayer();
         if (player != null) {
-            Vector3d lookVec = player.getLookAngle();
-
-            Direction facing = Direction.getNearest(lookVec.x, 0, lookVec.z);
-
+            Direction facing = Direction.getNearest(
+                    player.getLookAngle().x,
+                    0,
+                    player.getLookAngle().z
+            );
             boolean flag = facing == Direction.SOUTH || facing == Direction.NORTH;
             return this.defaultBlockState().setValue(FACING, flag ? facing : facing.getOpposite());
         }
@@ -96,26 +93,22 @@ public class WorkbenchBlock extends Block implements IModel {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
-        switch (direction) {
-            case NORTH:
-                return VoxelShapes.or(Block.box(0, 0, 0, 32, 16, 16));
-            case SOUTH:
-                return VoxelShapes.or(Block.box(16, 0, 0, -16, 16, 16));
-            case EAST:
-                return VoxelShapes.or(Block.box(0, 0, 16, 16, 16, -16));
-            case WEST:
-                return VoxelShapes.or(Block.box(0, 0, 0, 16, 16, 32));
-            default:
-                return VoxelShapes.or(Block.box(0, 0, 0, 16, 16, 16));
-        }
+        // Define shapes using correct 0-16 coordinates for the block
+        return switch (direction) {
+            case NORTH -> Shapes.box(0, 0, 0, 2, 1, 1);  // example smaller shape
+            case SOUTH -> Shapes.box(14 / 16f, 0, 0, 1, 1, 1);
+            case EAST -> Shapes.box(0, 0, 14 / 16f, 1, 1, 1);
+            case WEST -> Shapes.box(0, 0, 0, 1 / 8f, 1, 1);
+            default -> Shapes.block();
+        };
     }
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new WorkbenchTileEntity();
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new WorkbenchTileEntity(pos, state);
     }
 
     @Override
@@ -142,8 +135,8 @@ public class WorkbenchBlock extends Block implements IModel {
     }
 
     @Override
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
-        return BlockRenderType.INVISIBLE;
+    public RenderShape getRenderShape(BlockState state) {
+        // INVISIBLE to allow custom rendering
+        return RenderShape.INVISIBLE;
     }
-
 }

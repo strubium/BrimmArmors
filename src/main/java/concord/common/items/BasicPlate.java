@@ -2,15 +2,12 @@ package concord.common.items;
 
 import concord.Resources;
 import concord.client.render.IRarity;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-import java.util.List;
+import java.util.Properties;
 
 public class BasicPlate extends Item implements IRarity {
 

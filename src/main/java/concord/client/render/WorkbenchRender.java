@@ -1,36 +1,37 @@
 package concord.client.render;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 import concord.client.ClientProxy;
 import concord.common.blocks.WorkbenchBlock;
 import concord.common.tile.WorkbenchTileEntity;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class WorkbenchRender extends TileEntityRenderer<WorkbenchTileEntity> {
+public class WorkbenchRender implements BlockEntityRenderer<WorkbenchTileEntity> {
 
-    public WorkbenchRender(TileEntityRendererDispatcher dispatcher) {
-        super(dispatcher);
+    public WorkbenchRender(BlockEntityRendererProvider.Context context) {
+        super(context);
     }
 
     @Override
-    public void render(WorkbenchTileEntity tile, float partialTicks, MatrixStack matrix, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-        Block block = tile.getBlockState().getBlock();
-        if (block instanceof WorkbenchBlock) {
-            WorkbenchBlock workbench = (WorkbenchBlock) block;
-            Direction value = tile.getBlockState().getValue(WorkbenchBlock.FACING);
+    public void render(WorkbenchTileEntity tile, float partialTicks, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        BlockState state = tile.getBlockState();
+        Block block = state.getBlock();
+
+        if (block instanceof WorkbenchBlock workbench) {
+            Direction facing = state.getValue(WorkbenchBlock.FACING);
             matrix.pushPose();
             matrix.translate(0.5, 0.0, 0.5);
-            matrix.mulPose(Vector3f.YP.rotationDegrees(value.toYRot()));
-            Minecraft.getInstance().getTextureManager().bind(workbench.getTexture());
+            matrix.mulPose(Vector3f.YP.rotationDegrees(-facing.toYRot())); // Negative to match correct rotation
+
+            Minecraft.getInstance().getTextureManager().bindForSetup(workbench.getTexture());
             ClientProxy.getModel(workbench.getModel()).renderAll(workbench.getTexture(), matrix, buffer, combinedLight, combinedOverlay);
             matrix.popPose();
         }
     }
-
 }

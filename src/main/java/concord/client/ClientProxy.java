@@ -7,10 +7,10 @@ import concord.common.blocks.BlockRegistry;
 import concord.common.tile.TileRegistry;
 import concord.loader.AdvancedModelLoader;
 import concord.loader.obj.WavefrontObject;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;
 
@@ -22,26 +22,32 @@ public class ClientProxy extends CommonProxy {
         if (hashedModels.containsKey(model))
             return hashedModels.get(model);
 
-        WavefrontObject modelCustom = (WavefrontObject) AdvancedModelLoader.loadModel(new ResourceLocation(Concord.MOD_ID, "models/obj/" + model + ".obj"));
+        WavefrontObject modelCustom = (WavefrontObject) AdvancedModelLoader.loadModel(
+                new ResourceLocation(Concord.MOD_ID, "models/obj/" + model + ".obj"));
 
         hashedModels.put(model, modelCustom);
         return modelCustom;
     }
 
+    @Override
     public void preInit() {
         super.preInit();
     }
 
+    @Override
     public void init() {
         super.init();
     }
 
+    @Override
     public void client() {
-        ClientRegistry.bindTileEntityRenderer(TileRegistry.WORKBENCH_TILE.get(), WorkbenchRender::new);
-        RenderTypeLookup.setRenderLayer(BlockRegistry.workbench.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.workbench_plate.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.workbench_brf.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.workbench_hlmt.get(), RenderType.cutout());
-    }
+        // Block Entity Renderer registration (formerly TileEntityRenderer)
+        BlockEntityRenderers.register(TileRegistry.WORKBENCH_TILE.get(), context -> new WorkbenchRender());
 
+        // Render layer setup (formerly RenderTypeLookup)
+        ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench_plate.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench_brf.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(BlockRegistry.workbench_hlmt.get(), RenderType.cutout());
+    }
 }

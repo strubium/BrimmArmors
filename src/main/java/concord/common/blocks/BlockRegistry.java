@@ -5,13 +5,14 @@ import concord.Resources;
 import concord.client.render.Transform;
 import concord.common.items.ItemRegistry;
 import concord.common.recipes.RecipesManager;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
+
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.function.Function;
@@ -27,7 +28,7 @@ public class BlockRegistry {
                         transform.WORKBENCH.setTranslate(0, -0.5f, 0).setRotate(0, 0, 0).setScale(20, -20, 20);
                         transform.GUI.setTranslate(0, 0, 0).setRotate(0, 0,0).setScale(0.5f, -0.5f, 0.5f);
                     })
-            ), new Item.Properties().tab(Resources.BLOCKS)/*.setISTER(() -> ConcordItemRender::new)*/);
+            ), new Item.Properties());
 
     public static RegistryObject<Block> workbench_plate = register("workbench_plate", () ->
             new WorkbenchBlock("workbench_plate", Resources.WORKBENCH_PLATE_TEXTURE, RecipesManager.CraftType.PLATES, 0).setTransform(
@@ -35,7 +36,7 @@ public class BlockRegistry {
                         transform.WORKBENCH.setTranslate(0, -0.5f, 0).setRotate(0, 0, 0).setScale(20, -20, 20);
                         transform.GUI.setTranslate(0, 0, 0).setRotate(0, 0,0).setScale(0.5f, -0.5f, 0.5f);
                     })
-            ), new Item.Properties().tab(Resources.BLOCKS)/*.setISTER(() -> ConcordItemRender::new)*/);
+            ), new Item.Properties());
 
     public static RegistryObject<Block> workbench_brf = register("workbench_brf", () ->
             new WorkbenchBlock("workbench_brf", Resources.WORKBENCH_BRF_TEXTURE, RecipesManager.CraftType.BULLETPROOFS, 0).setTransform(
@@ -43,7 +44,7 @@ public class BlockRegistry {
                         transform.WORKBENCH.setTranslate(0, -0.5f, 0).setRotate(0, 0, 0).setScale(20, -20, 20);
                         transform.GUI.setTranslate(0, 0, 0).setRotate(0, 0,0).setScale(0.5f, -0.5f, 0.5f);
                     })
-            ), new Item.Properties().tab(Resources.BLOCKS)/*.setISTER(() -> ConcordItemRender::new)*/);
+            ), new Item.Properties());
 
     public static RegistryObject<Block> workbench_hlmt = register("workbench_hlmt", () ->
             new WorkbenchBlock("workbench_hlmt", Resources.WORKBENCH_HLMT_TEXTURE, RecipesManager.CraftType.HELMETS, 15).setTransform(
@@ -51,7 +52,7 @@ public class BlockRegistry {
                         transform.WORKBENCH.setTranslate(0, -0.8f, 0).setRotate(0, 0, 0).setScale(20, -20, 20);
                         transform.GUI.setTranslate(0, 0, 0).setRotate(0, 0,0).setScale(0.5f, -0.5f, 0.5f);
                     })
-            ), new Item.Properties().tab(Resources.BLOCKS)/*.setISTER(() -> ConcordItemRender::new)*/);
+            ), new Item.Properties());
 
     private static <T extends Block> RegistryObject<T> register(String id, Supplier<T> blockSupplier, Item.Properties properties) {
         return register(id, blockSupplier, block1 -> new BlockItem(block1, properties));

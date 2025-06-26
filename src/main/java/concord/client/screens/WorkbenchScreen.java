@@ -1,6 +1,6 @@
 package concord.client.screens;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import concord.Concord;
 import concord.client.ClientProxy;
@@ -12,23 +12,21 @@ import concord.common.network.packets.RequestCraftItem;
 import concord.common.recipes.Ingredient;
 import concord.common.recipes.ItemRecipe;
 import concord.common.recipes.RecipesManager;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.button.Button;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.vector.Vector3f;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipFlag;
 
-import java.awt.*;
+import net.minecraft.world.level.block.Block;
+
+
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +59,7 @@ public class WorkbenchScreen extends Screen {
     protected long rotationDelay = 800;
 
     public WorkbenchScreen(RecipesManager.CraftType craftType) {
-        super(new StringTextComponent("Workbench"));
+        super(Component.literal("Workbench"));
         this.mc = Minecraft.getInstance();
         this.craftType = craftType;
         this.recipes = RecipesManager.getRecipe(craftType);
@@ -77,11 +75,11 @@ public class WorkbenchScreen extends Screen {
     protected void init() {
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = (this.height - this.imageHeight) / 2;
-        this.craft = this.addButton(new Button(leftPos + imageWidth / 2 - 40, topPos + imageHeight - 25, 80, 20, new StringTextComponent(TextFormatting.BOLD + "CRAFT"), (a) -> {
+        this.craft = this.addButton(new Button(leftPos + imageWidth / 2 - 40, topPos + imageHeight - 25, 80, 20, Component.literal(ChatFormatting.BOLD + "CRAFT"), (a) -> {
             Concord.network.sendToServer(new RequestCraftItem(craftType, currentIndex));
         }));
         this.craft.active = false;
-        this.left = this.addButton(new Button(leftPos + imageWidth / 2 - 62, topPos + imageHeight - 25, 20, 20, new StringTextComponent(TextFormatting.BOLD + "<"), (button) -> {
+        this.left = this.addButton(new Button(leftPos + imageWidth / 2 - 62, topPos + imageHeight - 25, 20, 20, Component.literal(ChatFormatting.BOLD + "<"), (button) -> {
             if (currentIndex == 0) {
                 button.active = false;
                 return;
@@ -93,7 +91,7 @@ public class WorkbenchScreen extends Screen {
             }
         }));
         this.left.active = false;
-        this.right = this.addButton(new Button(leftPos + imageWidth / 2 + 42, topPos + imageHeight - 25, 20, 20, new StringTextComponent(TextFormatting.BOLD + ">"), (button) -> {
+        this.right = this.addButton(new Button(leftPos + imageWidth / 2 + 42, topPos + imageHeight - 25, 20, 20, Component.literal(ChatFormatting.BOLD + ">"), (button) -> {
             if (currentIndex == craftSize - 1) {
                 button.active = false;
                 return;
@@ -133,8 +131,8 @@ public class WorkbenchScreen extends Screen {
         if (itemRecipe != null) {
 
             if (itemRecipe.result instanceof BasicArmor) {
-                EquipmentSlotType type = ((BasicArmor) itemRecipe.result).type;
-                if (type == EquipmentSlotType.CHEST) {
+                EquipmentSlot type = ((BasicArmor) itemRecipe.result).type;
+                if (type == EquipmentSlot.CHEST) {
                     updateRotation(0, 90, 180, 270);
                 } else {
                     updateRotation(0, 90, 225, 0);
@@ -181,7 +179,7 @@ public class WorkbenchScreen extends Screen {
     }
 
     @Override
-    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float particleTick) {
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float particleTick) {
         int x = this.leftPos;
         int y = this.topPos;
 
@@ -190,41 +188,45 @@ public class WorkbenchScreen extends Screen {
             angle = lerp(angle, targetAngle, speed);
         }
 
-        fill(matrixStack, x - 1, y - 1, x + imageWidth + 1, y + imageHeight + 1, new Color(0x000000).getRGB());
-        fillGradient(matrixStack, x, y, x + imageWidth, y + imageHeight, new Color(0x720000).getRGB(), new Color(0x4B0000).getRGB());
-        fill(matrixStack, x + imageWidth / 2 - 36, y + 4, x + imageWidth / 2 + 36, y + 81, new Color(0x000000).getRGB());
-        fillGradient(matrixStack, x + imageWidth / 2 - 35, y + 5, x + imageWidth / 2 + 35, y + 80, new Color(0x720000).getRGB(), new Color(0x4B0000).getRGB());
+        fill(poseStack, x - 1, y - 1, x + imageWidth + 1, y + imageHeight + 1, new Color(0x000000).getRGB());
+        fillGradient(poseStack, x, y, x + imageWidth, y + imageHeight, new Color(0x720000).getRGB(), new Color(0x4B0000).getRGB());
+        fill(poseStack, x + imageWidth / 2 - 36, y + 4, x + imageWidth / 2 + 36, y + 81, new Color(0x000000).getRGB());
+        fillGradient(poseStack, x + imageWidth / 2 - 35, y + 5, x + imageWidth / 2 + 35, y + 80, new Color(0x720000).getRGB(), new Color(0x4B0000).getRGB());
 
         if (itemRecipe != null) {
             ItemStack itemStack = new ItemStack(itemRecipe.result);
             if (renderModel != null) {
                 renderResult(x + imageWidth / 2, y + 42, particleTick);
             } else {
-                MatrixStack matrixstack = new MatrixStack();
-                matrixstack.translate(x + imageWidth / 2f, y + 42, 200);
-                matrixstack.scale(50f, -50f, 50f);
-                matrixstack.mulPose(Vector3f.YP.rotationDegrees(prevAngle + (angle - prevAngle) * particleTick));
-                IRenderTypeBuffer.Impl irendertypebuffer$impl = Minecraft.getInstance().renderBuffers().bufferSource();
+                PoseStack stack = new PoseStack();
+                stack.translate(x + imageWidth / 2f, y + 42, 200);
+                stack.scale(50f, -50f, 50f);
+
+                float smoothAngle = prevAngle + (angle - prevAngle) * particleTick;
+                Quaternion rotation = new Quaternion(0f, smoothAngle, 0f, true);
+                stack.mulPose(rotation);
+
+                IRenderTypeBuffer.Impl buffer = Minecraft.getInstance().renderBuffers().bufferSource();
                 RenderHelper.setupForFlatItems();
-                mc.getItemRenderer().render(itemStack, ItemCameraTransforms.TransformType.GUI, false, matrixstack, irendertypebuffer$impl, 15728880, OverlayTexture.NO_OVERLAY, mc.getItemRenderer().getModel(itemStack, null, null));
-                irendertypebuffer$impl.endBatch();
+                mc.getItemRenderer().render(itemStack, net.minecraft.client.renderer.model.ItemCameraTransforms.TransformType.GUI, false, stack, buffer, 15728880, OverlayTexture.NO_OVERLAY, mc.getItemRenderer().getModel(itemStack, null, null));
+                buffer.endBatch();
             }
 
             int tooltipOffsetY = 0;
             int i = 0;
-            List<ITextComponent> tooltipFromItem = getTooltipFromItem(itemStack);
+            List<Component> tooltipFromItem = getTooltipFromItem(itemStack);
             if (itemRecipe.result instanceof IRarity) {
                 ConcordRarity rarity = ((IRarity) itemRecipe.result).getRarity();
-                for (ITextComponent iTextComponent : tooltipFromItem) {
+                for (Component iTextComponent : tooltipFromItem) {
                     if (i == 0) {
-                        mc.font.draw(matrixStack, rarity.color + iTextComponent.getString(), x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
+                        mc.font.draw(poseStack, rarity.color + iTextComponent.getString(), x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
                         tooltipOffsetY += 10;
                         i++;
                         continue;
                     }
                     if (tooltipFromItem.size() <= 2) break;
                     if (i == 1) {
-                        String formatting = TextFormatting.ITALIC + rarity.color.toString();
+                        String formatting = ChatFormatting.ITALIC + rarity.color.toString();
                         String string = iTextComponent.getString();
                         if (string.length() > 40) {
                             int splitPos = string.lastIndexOf(" ", 40);
@@ -233,21 +235,20 @@ public class WorkbenchScreen extends Screen {
                             }
                             String substring1 = string.substring(0, splitPos);
                             String substring2 = string.substring(splitPos).trim();
-                            mc.font.draw(matrixStack, formatting + substring1, x + imageWidth / 2f - font.width(substring1) / 2f, y + 82 + tooltipOffsetY, -1);
-                            mc.font.draw(matrixStack, formatting + substring2, x + imageWidth / 2f - font.width(substring2) / 2f, y + 82 + tooltipOffsetY + 10, -1);
+                            mc.font.draw(poseStack, formatting + substring1, x + imageWidth / 2f - font.width(substring1) / 2f, y + 82 + tooltipOffsetY, -1);
+                            mc.font.draw(poseStack, formatting + substring2, x + imageWidth / 2f - font.width(substring2) / 2f, y + 82 + tooltipOffsetY + 10, -1);
                         } else {
-                            mc.font.draw(matrixStack, formatting + iTextComponent.getString(), x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
+                            mc.font.draw(poseStack, formatting + iTextComponent.getString(), x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
                         }
                     } else {
-                        mc.font.draw(matrixStack, iTextComponent, x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
+                        mc.font.draw(poseStack, iTextComponent, x + imageWidth / 2f - font.width(iTextComponent) / 2f, y + 82 + tooltipOffsetY, -1);
                     }
                     tooltipOffsetY += 10;
                     i++;
                 }
             } else {
-                mc.font.draw(matrixStack, tooltipFromItem.get(0), x + imageWidth / 2f - font.width(tooltipFromItem.get(0)) / 2f, y + 82 + tooltipOffsetY, -1);
+                mc.font.draw(poseStack, tooltipFromItem.get(0), x + imageWidth / 2f - font.width(tooltipFromItem.get(0)) / 2f, y + 82 + tooltipOffsetY, -1);
             }
-
 
             int ingredientXOffset = 0;
             int ingredientYOffset = 0;
@@ -265,35 +266,42 @@ public class WorkbenchScreen extends Screen {
                 boolean flag = itemsCount >= ingredient.count;
 
                 String formatted = String.format("%s/%s", flag ? ingredient.count : itemsCount, ingredient.count);
-                mc.font.draw(matrixStack, formatted, x + imageWidth / 2f - 65 + ingredientXOffset, y + 10 + ingredientYOffset, flag ? new Color(0x769146).getRGB() : new Color(0xB24C58).getRGB());
+                mc.font.draw(poseStack, formatted, x + imageWidth / 2f - 65 + ingredientXOffset, y + 10 + ingredientYOffset, flag ? new Color(0x769146).getRGB() : new Color(0xB24C58).getRGB());
                 ingredientYOffset += 19;
                 j++;
             }
         }
-        super.render(matrixStack, mouseX, mouseY, particleTick);
+        super.render(poseStack, mouseX, mouseY, particleTick);
     }
 
     @SuppressWarnings("DataFlowIssue")
     protected int getItemsCount(Ingredient ingredient) {
-        return mc.player.inventory.countItem(ingredient.item);
+        return mc.player.getInventory().countItem(ingredient.item);
+    }
+
+    private List<Component> getTooltipFromItem(ItemStack stack) {
+        return stack.getTooltipLines(mc.player, mc.options.advancedItemTooltips ? ClientTooltipFlag.Advanced.INSTANCE : ClientTooltipFlag.Normal.INSTANCE);
     }
 
     protected void renderResult(int x, int y, float partialTicks) {
-        MatrixStack matrixStack = new MatrixStack();
-        matrixStack.pushPose();
+        PoseStack poseStack = new PoseStack();
+        poseStack.pushPose();
 
         // Position in GUI
-        matrixStack.translate(x, y, 200);
+        poseStack.translate(x, y, 200);
 
         // Setup model transform (custom transform defined by your model)
-        renderModel.getTransform().WORKBENCH.setup(matrixStack);
+        renderModel.getTransform().WORKBENCH.setup(poseStack);
 
         // Smooth rotation between previous and current angle
         float smoothAngle = prevAngle + (angle - prevAngle) * partialTicks;
-        matrixStack.mulPose(Vector3f.YP.rotationDegrees(smoothAngle));
+
+        // Use Quaternion rotation
+        Quaternion rotation = new Quaternion(0f, smoothAngle, 0f, true);
+        poseStack.mulPose(rotation);
 
         if (itemRecipe.result instanceof BlockItem) {
-            matrixStack.translate(0.5, -0.5, 0);
+            poseStack.translate(0.5, -0.5, 0);
         }
 
         // Bind texture for the model
@@ -304,15 +312,13 @@ public class WorkbenchScreen extends Screen {
         RenderSystem.defaultBlendFunc();
         RenderSystem.enableDepthTest();
 
-        // Render the model with the matrix stack
-        ClientProxy.getModel(renderModel.getModel()).renderAll(matrixStack);
+        // Render the model with the pose stack
+        ClientProxy.getModel(renderModel.getModel()).renderAll(poseStack);
 
         // Cleanup
-        matrixStack.popPose();
+        poseStack.popPose();
 
-        // Disable blend and depth test if necessary (optional depending on render context)
         RenderSystem.disableBlend();
         RenderSystem.disableDepthTest();
     }
-
 }

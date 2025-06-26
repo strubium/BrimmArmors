@@ -2,10 +2,9 @@ package concord;
 
 import concord.common.blocks.BlockRegistry;
 import concord.common.items.ItemRegistry;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 
 import static concord.common.items.ItemRegistry.get;
 
@@ -48,11 +47,11 @@ public class Resources {
         return new ResourceLocation(Concord.MOD_ID, path);
     }
 
-    public static ItemGroup getArmorTab(EquipmentSlotType type) {
-        if (type == EquipmentSlotType.CHEST) {
+    public static ItemGroup getArmorTab(EquipmentSlot type) {
+        if (type == EquipmentSlot.CHEST) {
             return BULLETPROOF;
         }
-        if (type == EquipmentSlotType.HEAD) {
+        if (type == EquipmentSlot.HEAD) {
             return HELMET;
         }
         return null;

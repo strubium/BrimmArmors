@@ -1,20 +1,19 @@
 package concord.common.items;
 
-import net.minecraft.util.text.TextFormatting;
 
+import net.minecraft.ChatFormatting;
 
 public enum ConcordRarity {
 
-    COMMON(TextFormatting.GREEN),
-    UNCOMMON(TextFormatting.GOLD),
-    RARE(TextFormatting.LIGHT_PURPLE),
-    EPIC(TextFormatting.RED);
+    COMMON(ChatFormatting.GREEN),
+    UNCOMMON(ChatFormatting.GOLD),
+    RARE(ChatFormatting.LIGHT_PURPLE),
+    EPIC(ChatFormatting.RED);
 
-    public final TextFormatting color;
+    public final ChatFormatting color;
 
-    ConcordRarity(TextFormatting color) {
+    ConcordRarity(ChatFormatting color) {
         this.color = color;
     }
-
 
 }

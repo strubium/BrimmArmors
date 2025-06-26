@@ -1,12 +1,10 @@
 package concord.client.render;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.client.renderer.model.ItemCameraTransforms;
-import net.minecraft.util.math.vector.Vector3f;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.world.item.ItemDisplayContext;
+
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 public class Transform {
@@ -22,7 +20,6 @@ public class Transform {
     public Matrix DROP = new Matrix().identify();
 
     protected Transform() {
-
     }
 
     public static Transform create() {
@@ -34,28 +31,17 @@ public class Transform {
         return this;
     }
 
-    public void apply(ItemCameraTransforms.TransformType type, MatrixStack matrix) {
+    public void apply(ItemDisplayContext type, PoseStack poseStack) {
         switch (type) {
-            case GUI:
-                GUI.setup(matrix);
-                break;
-            case GROUND:
-                DROP.setup(matrix);
-                break;
-            case FIRST_PERSON_RIGHT_HAND:
-                RIGHT_HAND.setup(matrix);
-                break;
-            case FIRST_PERSON_LEFT_HAND:
-                LEFT_HAND.setup(matrix);
-                break;
-            case THIRD_PERSON_LEFT_HAND:
-                LEFT_HAND_3D.setup(matrix);
-                break;
-            case THIRD_PERSON_RIGHT_HAND:
-                RIGHT_HAND_3D.setup(matrix);
-                break;
-            default:
-                break;
+            case GUI -> GUI.setup(poseStack);
+            case GROUND -> DROP.setup(poseStack);
+            case FIRST_PERSON_RIGHT_HAND -> RIGHT_HAND.setup(poseStack);
+            case FIRST_PERSON_LEFT_HAND -> LEFT_HAND.setup(poseStack);
+            case THIRD_PERSON_LEFT_HAND -> LEFT_HAND_3D.setup(poseStack);
+            case THIRD_PERSON_RIGHT_HAND -> RIGHT_HAND_3D.setup(poseStack);
+            default -> {
+                // no-op
+            }
         }
     }
 
@@ -87,25 +73,30 @@ public class Transform {
             return this;
         }
 
-        public void setup(MatrixStack matrix) {
-            matrix.mulPose(Vector3f.XP.rotationDegrees(rotate[0]));
-            matrix.mulPose(Vector3f.YP.rotationDegrees(rotate[1]));
-            matrix.mulPose(Vector3f.ZP.rotationDegrees(rotate[2]));
-            matrix.scale(scale[0], scale[1], scale[2]);
-            matrix.translate(translate[0], translate[1], translate[2]);
+        public void setup(PoseStack poseStack) {
+            poseStack.mulPose(Vector3f.XP.rotationDegrees(rotate[0]));
+            poseStack.mulPose(Vector3f.YP.rotationDegrees(rotate[1]));
+            poseStack.mulPose(Vector3f.ZP.rotationDegrees(rotate[2]));
+            poseStack.scale(scale[0], scale[1], scale[2]);
+            poseStack.translate(translate[0], translate[1], translate[2]);
         }
 
         @Override
         public boolean equals(Object o) {
+            if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Matrix matrix = (Matrix) o;
-            return Objects.deepEquals(translate, matrix.translate) && Objects.deepEquals(rotate, matrix.rotate) && Objects.deepEquals(scale, matrix.scale);
+            return Arrays.equals(translate, matrix.translate)
+                    && Arrays.equals(rotate, matrix.rotate)
+                    && Arrays.equals(scale, matrix.scale);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(Arrays.hashCode(translate), Arrays.hashCode(rotate), Arrays.hashCode(scale));
+            int result = Arrays.hashCode(translate);
+            result = 31 * result + Arrays.hashCode(rotate);
+            result = 31 * result + Arrays.hashCode(scale);
+            return result;
         }
     }
-
 }

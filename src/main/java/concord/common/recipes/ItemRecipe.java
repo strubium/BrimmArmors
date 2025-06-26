@@ -1,6 +1,7 @@
 package concord.common.recipes;
 
-import net.minecraft.item.Item;
+
+import net.minecraft.world.item.Item;
 
 public class ItemRecipe {
 

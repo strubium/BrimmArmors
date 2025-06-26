@@ -3,7 +3,7 @@ package concord.loader.obj;
 import concord.loader.IModelCustom;
 import concord.loader.IModelCustomLoader;
 import concord.loader.ModelFormatException;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 
 public class ObjModelLoader implements IModelCustomLoader {
