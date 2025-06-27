@@ -1,13 +1,13 @@
 package concord.common.network;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.player.ClientPlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.LogicalSide;
-import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
@@ -17,7 +17,7 @@ public class SimplePacket {
         final NetworkEvent.Context ctx = context.get();
         if (ctx.getDirection().getReceptionSide() == LogicalSide.SERVER) {
             ctx.enqueueWork(() -> {
-                ServerPlayerEntity sender = ctx.getSender();
+                ServerPlayer sender = ctx.getSender();
                 packet.server(sender);
             });
             ctx.setPacketHandled(true);
@@ -27,18 +27,17 @@ public class SimplePacket {
         }
     }
 
-    public void server(ServerPlayerEntity player) {
-
+    public void server(ServerPlayer player) {
+        // Server-side handler
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void client(ClientPlayerEntity player) {
-
+    public void client(LocalPlayer player) {
+        // Client-side handler
     }
 
     @OnlyIn(Dist.CLIENT)
-    private static ClientPlayerEntity clientPlayer() {
+    private static LocalPlayer clientPlayer() {
         return Minecraft.getInstance().player;
     }
-
 }

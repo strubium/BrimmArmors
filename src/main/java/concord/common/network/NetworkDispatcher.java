@@ -13,7 +13,7 @@ public class NetworkDispatcher extends AbstractDispatcher {
     @Override
     public void register() {
         register(RequestCraftItem.class, RequestCraftItem::read, RequestCraftItem::write, RequestCraftItem::handle);
-        register(SetWorkbenchScreenS2C.class, SetWorkbenchScreenS2C::read, SetWorkbenchScreenS2C::write, SetWorkbenchScreenS2C::handle);
+        register(SetWorkbenchScreenS2C.class, SetWorkbenchScreenS2C::encode, SetWorkbenchScreenS2C::decode, SetWorkbenchScreenS2C::handle);
     }
 
 }

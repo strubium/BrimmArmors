@@ -10,10 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class TileRegistry {
 
-    // Note: In 1.20.1, TileEntityType was renamed to BlockEntityType,
-    // and ForgeRegistries.TILE_ENTITIES renamed to ForgeRegistries.BLOCK_ENTITIES
-
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Concord.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Concord.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<WorkbenchTileEntity>> WORKBENCH_TILE = BLOCK_ENTITIES.register("workbench_tile", () ->
             BlockEntityType.Builder.of(WorkbenchTileEntity::new,

@@ -30,8 +30,13 @@ public class BasicArmor extends ArmorItem implements IRarity {
     private final ResourceLocation texture;
     private Transform transform;
 
-    public BasicArmor(String model, EquipmentSlot type, ConcordRarity rarity, ConcordArmorMaterial material) {
-        super(material, type, new Properties().durability(material.getDurabilityForSlot(type)).tab(Resources.getArmorTab(type)));
+    /**
+     * Defense and durability must be passed explicitly now, since ArmorMaterial no longer provides them per slot.
+     */
+    public BasicArmor(String model, EquipmentSlot type, ConcordRarity rarity, ConcordArmorMaterial material,
+                      int defense, int durability) {
+        // Create ArmorItem.Properties with durability manually set per item
+        super(material, equipmentSlotToArmorType(type), new Properties().durability(durability));
         this.type = type;
         this.rarity = rarity;
         this.tooltip = model;
@@ -48,8 +53,19 @@ public class BasicArmor extends ArmorItem implements IRarity {
         }
     }
 
+    public static ArmorItem.Type equipmentSlotToArmorType(EquipmentSlot slot) {
+        return switch (slot) {
+            case HEAD -> ArmorItem.Type.HELMET;
+            case CHEST -> ArmorItem.Type.CHESTPLATE;
+            case LEGS -> ArmorItem.Type.LEGGINGS;
+            case FEET -> ArmorItem.Type.BOOTS;
+            default -> throw new IllegalArgumentException("Invalid EquipmentSlot: " + slot);
+        };
+    }
+
     @Override
     public Component getName(ItemStack stack) {
+        // Apply rarity color to the name
         return Component.literal(rarity.color + super.getName(stack).getString());
     }
 
@@ -58,24 +74,9 @@ public class BasicArmor extends ArmorItem implements IRarity {
         tooltipList.add(Component.literal(rarity.color + "\u00A7o" + I18n.get("tooltip." + tooltip)));
     }
 
-    @Nullable
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    @SuppressWarnings("unchecked")
-    public <A extends HumanoidModel<?>> A getArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, A defaultModel) {
-        if (slot != this.type) return defaultModel;
-
-        ModelPart modelPart = getModelPart();
-        if (modelPart == null) return defaultModel;
-
-        return (A) new ConcordArmorRender(modelPart, this);
-    }
-
     private ModelPart getModelPart() {
-        // You will want to create and return your armor model's root ModelPart here.
-        // For example:
+        // TODO: Replace with your actual model part retrieval, e.g.:
         // return ClientProxy.getModelPart(model);
-        // For now, return null as placeholder:
         return null;
     }
 

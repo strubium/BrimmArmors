@@ -1,26 +1,22 @@
 package concord.common.items;
 
-import concord.Resources;
 import concord.client.render.IRarity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-
-import java.util.Properties;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class BasicPlate extends Item implements IRarity {
 
     private final ConcordRarity rarity;
 
     public BasicPlate(ConcordRarity rarity) {
-        super(new Properties().tab(Resources.ITEMS));
+        super(new Properties());
         this.rarity = rarity;
     }
 
     @Override
-    public ITextComponent getName(ItemStack p_200295_1_) {
-        return new StringTextComponent(rarity.color + super.getName(p_200295_1_).getString());
+    public Component getName(ItemStack stack) {
+        return Component.literal(rarity.color + super.getName(stack).getString());
     }
 
     @Override

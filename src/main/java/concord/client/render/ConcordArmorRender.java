@@ -21,10 +21,11 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int combinedLight, int combinedOverlay, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer,
+                               int packedLight, int packedOverlay,
+                               float red, float green, float blue, float alpha) {
         poseStack.pushPose();
 
-        // Apply vanilla armor transformations
         if (armor.type == EquipmentSlot.CHEST) {
             this.body.translateAndRotate(poseStack);
         }
@@ -32,12 +33,11 @@ public class ConcordArmorRender extends HumanoidModel<LivingEntity> {
             this.head.translateAndRotate(poseStack);
         }
 
-        // Apply any additional transform from the armor item
         armor.getTransform().ARMOR.setup(poseStack);
 
-        // Render the model
         ResourceLocation texture = armor.getTexture();
-        ClientProxy.getModel(armor.getModel()).renderAll(texture, poseStack, Minecraft.getInstance().renderBuffers().bufferSource(), combinedLight, combinedOverlay);
+        ClientProxy.getModel(armor.getModel())
+                .renderAll(poseStack, Minecraft.getInstance().renderBuffers().bufferSource(), texture, packedLight, packedOverlay);
 
         poseStack.popPose();
     }

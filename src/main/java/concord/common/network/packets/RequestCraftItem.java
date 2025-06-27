@@ -5,10 +5,10 @@ import concord.common.network.SimplePacket;
 import concord.common.recipes.Ingredient;
 import concord.common.recipes.ItemRecipe;
 import concord.common.recipes.RecipesManager;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,6 @@ public class RequestCraftItem extends SimplePacket {
     public short currentIndex;
 
     public RequestCraftItem() {
-
     }
 
     public RequestCraftItem(RecipesManager.CraftType craftType, short currentIndex) {
@@ -26,38 +25,37 @@ public class RequestCraftItem extends SimplePacket {
         this.currentIndex = currentIndex;
     }
 
-    public static void read(RequestCraftItem msg, PacketBuffer packetBuffer) {
-        packetBuffer.writeUtf(msg.craftType.getRecipeID());
-        packetBuffer.writeShort(msg.currentIndex);
+    public static void read(RequestCraftItem msg, FriendlyByteBuf buffer) {
+        buffer.writeUtf(msg.craftType.getRecipeID());
+        buffer.writeShort(msg.currentIndex);
     }
 
-    public static RequestCraftItem write(PacketBuffer packetBuffer) {
-        return new RequestCraftItem(RecipesManager.CraftType.get(packetBuffer.readUtf()), packetBuffer.readShort());
+    public static RequestCraftItem write(FriendlyByteBuf buffer) {
+        return new RequestCraftItem(RecipesManager.CraftType.get(buffer.readUtf()), buffer.readShort());
     }
-
 
     @Override
-    public void server(ServerPlayerEntity player) {
+    public void server(ServerPlayer player) {
         ArrayList<ItemRecipe> recipes = RecipesManager.getRecipe(craftType);
         if (recipes == null || currentIndex < 0 || currentIndex >= recipes.size()) {
             Concord.LOGGER.error("Someone is trying to craft something with a weird currentIndex!");
-            return;  // invalid request
+            return;  // Invalid request
         }
 
         try {
-            PlayerInventory inventory = player.inventory;
+            Inventory inventory = player.getInventory();
             ItemRecipe itemRecipe = recipes.get(currentIndex);
 
-            boolean flag = true;
+            boolean hasIngredients = true;
 
             for (Ingredient ingredient : itemRecipe.ingredients) {
                 if (ingredient.count > inventory.countItem(ingredient.item)) {
-                    flag = false;
+                    hasIngredients = false;
                     break;
                 }
             }
 
-            if (flag) {
+            if (hasIngredients) {
                 for (Ingredient ingredient : itemRecipe.ingredients) {
                     int countToRemove = ingredient.count;
                     for (int i = 0; i < inventory.getContainerSize(); i++) {
@@ -77,6 +75,7 @@ public class RequestCraftItem extends SimplePacket {
                         }
                     }
                 }
+
                 ItemStack resultItem = new ItemStack(itemRecipe.result);
                 if (!inventory.add(resultItem)) {
                     player.drop(resultItem, false);
@@ -86,6 +85,5 @@ public class RequestCraftItem extends SimplePacket {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

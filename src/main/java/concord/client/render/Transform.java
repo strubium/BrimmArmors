@@ -1,6 +1,7 @@
 package concord.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.minecraft.world.item.ItemDisplayContext;
 
 
@@ -74,10 +75,17 @@ public class Transform {
         }
 
         public void setup(PoseStack poseStack) {
-            poseStack.mulPose(Vector3f.XP.rotationDegrees(rotate[0]));
-            poseStack.mulPose(Vector3f.YP.rotationDegrees(rotate[1]));
-            poseStack.mulPose(Vector3f.ZP.rotationDegrees(rotate[2]));
+            // Rotate around X-axis
+            poseStack.mulPose(Axis.XP.rotationDegrees(rotate[0]));
+            // Rotate around Y-axis
+            poseStack.mulPose(Axis.YP.rotationDegrees(rotate[1]));
+            // Rotate around Z-axis
+            poseStack.mulPose(Axis.ZP.rotationDegrees(rotate[2]));
+
+            // Scale
             poseStack.scale(scale[0], scale[1], scale[2]);
+
+            // Translate
             poseStack.translate(translate[0], translate[1], translate[2]);
         }
 

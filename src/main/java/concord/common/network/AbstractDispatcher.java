@@ -1,12 +1,12 @@
 package concord.common.network;
 
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.network.NetworkEvent;
-import net.minecraftforge.fml.network.NetworkRegistry;
-import net.minecraftforge.fml.network.PacketDistributor;
-import net.minecraftforge.fml.network.simple.SimpleChannel;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.simple.SimpleChannel;
 
 import java.util.function.BiConsumer;
 import java.util.function.Function;
@@ -18,7 +18,12 @@ public abstract class AbstractDispatcher {
     private byte nextPacketID;
 
     public AbstractDispatcher(String modID) {
-        this.dispatcher = NetworkRegistry.newSimpleChannel(new ResourceLocation(modID, "main"), () -> "1", "1"::equals, "1"::equals);
+        this.dispatcher = NetworkRegistry.newSimpleChannel(
+                new ResourceLocation(modID, "main"),
+                () -> "1",
+                "1"::equals,
+                "1"::equals
+        );
     }
 
     public SimpleChannel get() {
@@ -26,21 +31,19 @@ public abstract class AbstractDispatcher {
     }
 
     /**
-     * Here you supposed to register packets to handlers
+     * Here you should register packets to handlers
      */
     public abstract void register();
 
     /**
-     * Send message to given player
+     * Send message to a given player
      */
-    public <MSG> void sendTo(MSG message, ServerPlayerEntity player) {
+    public <MSG> void sendTo(MSG message, ServerPlayer player) {
         this.dispatcher.send(PacketDistributor.PLAYER.with(() -> player), message);
     }
 
     /**
      * Send message to all players
-     *
-     * @param message
      */
     public <MSG> void sendToAll(MSG message) {
         this.dispatcher.send(PacketDistributor.ALL.noArg(), message);
@@ -63,10 +66,9 @@ public abstract class AbstractDispatcher {
     }
 
     /**
-     * Register given message with given message handler on a given side
+     * Register the given message with the given message handler
      */
-    public <MSG> void register(Class<MSG> messageType, BiConsumer<MSG, PacketBuffer> encoder, Function<PacketBuffer, MSG> decoder, BiConsumer<MSG, Supplier<NetworkEvent.Context>> messageConsumer) {
+    public <MSG> void register(Class<MSG> messageType, BiConsumer<MSG, FriendlyByteBuf> encoder, Function<FriendlyByteBuf, MSG> decoder, BiConsumer<MSG, Supplier<NetworkEvent.Context>> messageConsumer) {
         this.dispatcher.registerMessage(nextPacketID++, messageType, encoder, decoder, messageConsumer);
     }
-
 }

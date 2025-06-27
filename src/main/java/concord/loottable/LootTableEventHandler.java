@@ -2,6 +2,9 @@ package concord.loottable;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,14 +35,13 @@ public class LootTableEventHandler {
     private static final Map<ResourceLocation, List<LootEntryData>> LOOT_TABLE_ENTRIES = new HashMap<>();
 
     static {
-        // Add entries here
-        addEntry(LootTables.ABANDONED_MINESHAFT, new LootEntryData("saper", 17, 1, 2));
-        addEntry(LootTables.SIMPLE_DUNGEON,        new LootEntryData("saper", 15, 1, 1));
-        addEntry(LootTables.VILLAGE_PLAINS_HOUSE,  new LootEntryData("saper", 7, 1, 1));
-        addEntry(LootTables.VILLAGE_SNOWY_HOUSE,   new LootEntryData("saper", 7, 1, 1));
-        addEntry(LootTables.VILLAGE_DESERT_HOUSE,  new LootEntryData("saper", 7, 1, 1));
-        addEntry(LootTables.VILLAGE_TAIGA_HOUSE,   new LootEntryData("saper", 7, 1, 1));
-        addEntry(LootTables.VILLAGE_SAVANNA_HOUSE, new LootEntryData("saper", 7, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"), new LootEntryData("saper", 17, 1, 2));
+        addEntry(new ResourceLocation("minecraft", "chests/simple_dungeon"), new LootEntryData("saper", 15, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/village/plains_house"), new LootEntryData("saper", 7, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/village/snowy_house"), new LootEntryData("saper", 7, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/village/desert_house"), new LootEntryData("saper", 7, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/village/taiga_house"), new LootEntryData("saper", 7, 1, 1));
+        addEntry(new ResourceLocation("minecraft", "chests/village/savanna_house"), new LootEntryData("saper", 7, 1, 1));
     }
 
     public static void addEntry(String lootTableName, LootEntryData entry) {
@@ -71,11 +73,12 @@ public class LootTableEventHandler {
         if (entries != null) {
             LootPool.Builder poolBuilder = LootPool.lootPool();
             for (LootEntryData entry : entries) {
-                poolBuilder.add(ItemLootEntry.lootTableItem(get(entry.itemName))
+                poolBuilder.add(LootItem.lootTableItem(get(entry.itemName))
                         .setWeight(entry.weight)
-                        .apply(SetCount.setCount(RandomValueRange.between(entry.minCount, entry.maxCount))));
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(entry.minCount, entry.maxCount))));
             }
             event.getTable().addPool(poolBuilder.build());
         }
     }
+
 }
