@@ -8,7 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.INBT;
+import net.minecraft.nbt.ListNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraftforge.event.TickEvent;
@@ -17,8 +17,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
+import java.util.Map;
 
 import static concord.common.items.ItemRegistry.get;
+import static concord.effects.EffectsConfig.*;
 
 @Mod.EventBusSubscriber
 public class EffectsManager {
@@ -29,138 +31,98 @@ public class EffectsManager {
             PlayerEntity player = (PlayerEntity) event.getEntityLiving();
             ItemStack to = event.getTo();
             ItemStack from = event.getFrom();
+
             if (event.getSlot() == EquipmentSlotType.HEAD) {
-                onAddHelmet(player, to);
+                applyConfigEffects(player, to, helmetEffects);
             }
             if (event.getSlot() == EquipmentSlotType.CHEST) {
-                onAddChest(player, to);
+                applyConfigEffects(player, to, chestEffects);
+                applyEnchantments(to);
             }
-            onRemove(player, from);
+            removeConfigEffects(player, from);
         }
     }
 
-    public static void onAddHelmet(PlayerEntity player, ItemStack to) {
-        if (to.getItem() == get("concord_h")) {
-            player.addEffect(new EffectInstance(Effects.REGENERATION, Integer.MAX_VALUE, 2, false, false));
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("gpnvg_h")) {
-            player.addEffect(new EffectInstance(Effects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("ghost_h")) {
-            player.addEffect(new EffectInstance(Effects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false));
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("killa_h")) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-    }
-
-    public static void onAddChest(PlayerEntity player, ItemStack to) {
-        if (to.getItem() == get("marine")) {
-            player.addEffect(new EffectInstance(Effects.WATER_BREATHING, Integer.MAX_VALUE, 0, false, false));
-            player.addEffect(new EffectInstance(Effects.DOLPHINS_GRACE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("saper")) {
-            enchant(to, Enchantments.BLAST_PROTECTION, 10);
-        }
-        if (to.getItem() == get("medic")) {
-            player.addEffect(new EffectInstance(Effects.REGENERATION, Integer.MAX_VALUE, 3, false, false));
-        }
-        if (to.getItem() == get("defender_iii")) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("concord")) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("horse")) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("spn")) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("atleti")) {
-            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, Integer.MAX_VALUE, 3, false, false));
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false));
-        }
-        if (to.getItem() == get("nyyyaaaa")) {
-            enchant(to, Enchantments.THORNS, 10);
-        }
-    }
-
-    public static void onRemove(PlayerEntity player, ItemStack from) {
-        if (from.getItem() == get("marine")) {
-            player.removeEffect(Effects.WATER_BREATHING);
-            player.removeEffect(Effects.DOLPHINS_GRACE);
-        }
-        if (from.getItem() == get("medic")) {
-            player.removeEffect(Effects.REGENERATION);
-        }
-        if (from.getItem() == get("defender_iii")) {
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("concord")) {
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("horse")) {
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("spn")) {
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("atleti")) {
-            player.removeEffect(Effects.MOVEMENT_SPEED);
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("concord_h")) {
-            player.removeEffect(Effects.REGENERATION);
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("gpnvg_h")) {
-            player.removeEffect(Effects.NIGHT_VISION);
-        }
-        if (from.getItem() == get("ghost_h")) {
-            player.removeEffect(Effects.NIGHT_VISION);
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-        if (from.getItem() == get("killa_h")) {
-            player.removeEffect(Effects.FIRE_RESISTANCE);
-        }
-    }
-
-    public static void enchant(ItemStack itemStack, Enchantment enchantment, int level) {
-        boolean flag = true;
-        for (INBT enchantmentTag : itemStack.getEnchantmentTags()) {
-            String asString = enchantmentTag.getAsString();
-            if (asString.contains(enchantment.getRegistryName().toString())) {
-                flag = false;
+    private static void applyConfigEffects(PlayerEntity player, ItemStack stack,
+                                           Map<String, List<EffectData>> map) {
+        if (stack.isEmpty()) return;
+        String id = stack.getItem().getRegistryName().getPath();
+        List<EffectData> effects = map.get(id);
+        if (effects != null) {
+            for (EffectData data : effects) {
+                player.addEffect(data.toInstance());
             }
         }
-        if (flag) {
-            itemStack.enchant(enchantment, level);
+    }
+
+    private static void removeConfigEffects(PlayerEntity player, ItemStack stack) {
+        if (stack.isEmpty()) return;
+        String id = stack.getItem().getRegistryName().getPath();
+
+        List<EffectData> effects = helmetEffects.get(id);
+        if (effects == null) effects = chestEffects.get(id);
+        if (effects != null) {
+            for (EffectData data : effects) {
+                player.removeEffect(data.getEffect());
+            }
+        }
+    }
+
+    private static void applyEnchantments(ItemStack stack) {
+        if (stack.isEmpty()) return;
+        String id = stack.getItem().getRegistryName().getPath();
+
+        if (blastProtected.contains(id)) {
+            enchant(stack, Enchantments.BLAST_PROTECTION, 10);
+        }
+        if (thorned.contains(id)) {
+            enchant(stack, Enchantments.THORNS, 10);
+        }
+    }
+
+    private static void enchant(ItemStack stack, Enchantment enchantment, int level) {
+        boolean needsEnchant = true;
+
+        ListNBT tagList = stack.getEnchantmentTags();
+        String enchantKey = enchantment.getRegistryName().toString();
+
+        for (int i = 0; i < tagList.size(); i++) {
+            if (tagList.get(i).getAsString().contains(enchantKey)) {
+                needsEnchant = false;
+                break;
+            }
+        }
+
+        if (needsEnchant) {
+            stack.enchant(enchantment, level);
         }
     }
 
     @SubscribeEvent
     public static void onTick(TickEvent.PlayerTickEvent event) {
         PlayerEntity player = event.player;
-        PlayerInventory inventory = player.inventory;
-        ItemStack helmet = inventory.armor.get(3);
-        ItemStack chest = inventory.armor.get(2);
-        ItemStack carried = inventory.getCarried();
-        if (carried.getItem() instanceof BasicArmor) {
-            if (!carried.getEnchantmentTags().isEmpty()) {
-                carried.getEnchantmentTags().clear();
+        PlayerInventory inv = player.inventory;
+
+        ItemStack helmet = inv.armor.get(3);
+        ItemStack chest = inv.armor.get(2);
+
+        // Strip BasicArmor enchantments when not equipped
+        if (inv.getCarried().getItem() instanceof BasicArmor) {
+            if (!inv.getCarried().getEnchantmentTags().isEmpty()) {
+                inv.getCarried().getEnchantmentTags().clear();
             }
         }
-        for (ItemStack item : player.inventory.items) {
+
+        for (ItemStack item : inv.items) {
             if (item.getItem() instanceof BasicArmor) {
                 if (!item.getEnchantmentTags().isEmpty()) {
                     item.getEnchantmentTags().clear();
                 }
             }
         }
-        if (helmet.getItem() == get("gasmask_h")) {
+
+        // Gas mask status effect removal
+        if (!helmet.isEmpty() && helmet.getItem() == get("gasmask_h")) {
             player.removeEffect(Effects.POISON);
             player.removeEffect(Effects.BLINDNESS);
             player.removeEffect(Effects.HUNGER);
@@ -169,22 +131,24 @@ public class EffectsManager {
             player.removeEffect(Effects.MOVEMENT_SLOWDOWN);
             player.removeEffect(Effects.WEAKNESS);
         }
-        if (event.side.isServer()) {
-            if (helmet.getItem() == get("medic_h")) {
-                List<Entity> entities = player.level.getEntities(player, player.getBoundingBox().expandTowards(-5, -5, -5).expandTowards(5, 5, 5));
-                boolean flag = chest.getItem() == get("medic");
-                for (Entity entity : entities) {
-                    if (entity instanceof PlayerEntity) {
-                        if (!((PlayerEntity) entity).hasEffect(Effects.REGENERATION)) {
-                            ((PlayerEntity) entity).addEffect(new EffectInstance(Effects.REGENERATION, 100, flag ? 4 : 3, false, false));
-                        }
+
+        // Medic helmet passive regen to nearby players
+        if (event.side.isServer() && !helmet.isEmpty() && helmet.getItem() == get("medic_h")) {
+            List<Entity> nearby = player.level.getEntities(player, player.getBoundingBox().inflate(5));
+            boolean upgraded = !chest.isEmpty() && chest.getItem() == get("medic");
+
+            for (Entity entity : nearby) {
+                if (entity instanceof PlayerEntity) {
+                    PlayerEntity nearbyPlayer = (PlayerEntity) entity;
+                    if (!nearbyPlayer.hasEffect(Effects.REGENERATION)) {
+                        nearbyPlayer.addEffect(new EffectInstance(Effects.REGENERATION, 100, upgraded ? 4 : 3, false, false));
                     }
                 }
-                if (!player.hasEffect(Effects.REGENERATION)) {
-                    player.addEffect(new EffectInstance(Effects.REGENERATION, 100, flag ? 4 : 3, false, false));
-                }
+            }
+
+            if (!player.hasEffect(Effects.REGENERATION)) {
+                player.addEffect(new EffectInstance(Effects.REGENERATION, 100, upgraded ? 4 : 3, false, false));
             }
         }
     }
-
 }

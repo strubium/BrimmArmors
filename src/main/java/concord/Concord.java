@@ -6,11 +6,14 @@ import concord.common.blocks.BlockRegistry;
 import concord.common.items.ItemRegistry;
 import concord.common.network.NetworkDispatcher;
 import concord.common.tile.TileRegistry;
+import concord.effects.EffectsConfig;
 import concord.resource.JsonConfigLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
@@ -45,6 +48,11 @@ public class Concord
         eventBus.addListener(this::client);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, EffectsConfig.CONFIG);
+
+        EffectsConfig.loadConfig();
+
     }
 
     /**
