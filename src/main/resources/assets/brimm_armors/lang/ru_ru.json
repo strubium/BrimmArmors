@@ -1,0 +1,107 @@
+{
+  "itemGroup.helmet": "Brimm Armors Helmets",
+  "itemGroup.bulletproof": "Brimm Armors Bulletproofs",
+  "itemGroup.blocks": "Brimm Armors Blocks",
+  "block.brimm_armors.workbench": "Workbench",
+
+  "block.brimm_armors.workbench_plate": "Plate Workbench",
+  "block.brimm_armors.workbench_brf": "Bulletproof Workbench",
+  "block.brimm_armors.workbench_hlmt": "Helmet Workbench",
+
+  "item.brimm_armors.iron_plate": "Iron Plate",
+  "item.brimm_armors.diamond_plate": "Diamond Plate",
+  "item.brimm_armors.nether_plate": "Nether Plate",
+
+  "item.brimm_armors.nato": "Combined arms body armor",
+  "tooltip.nato": "You're in the army now",
+
+  "item.brimm_armors.nato_ii": "Assault Combined arms body armor",
+  "tooltip.nato_ii": "Johnny, get your gun",
+
+  "item.brimm_armors.marine": "MarineRaiders Bulletproof",
+  "tooltip.marine": "Gung-ho!",
+
+  "item.brimm_armors.guard": "Guard Bulletproof",
+  "tooltip.guard": "Always Ready, Always There!",
+
+  "item.brimm_armors.saper": "Saper Bulletproof",
+  "tooltip.saper": "Хозяин этого бронежилета очень не любил криперов",
+
+  "item.brimm_armors.vanderer": "Vanderer Bulletproof",
+  "tooltip.vanderer": "Он устал бродить по пустыне",
+
+  "item.brimm_armors.defender": "Defender Bulletproof",
+  "tooltip.defender": "",
+
+  "item.brimm_armors.defender_ii": "Assault defender Bulletproof",
+  "tooltip.defender_ii": "",
+
+  "item.brimm_armors.defender_iii": "Assault defender Bulletproof 2",
+  "tooltip.defender_iii": "",
+
+  "item.brimm_armors.brimm_armors": "Brimm Armors's Bulletproof",
+  "tooltip.brimm_armors": "Подписывайтесь на мой Twitch!",
+
+  "item.brimm_armors.pmc": "PMC Kinder Bulletproof",
+  "tooltip.pmc": "Температура +50. Всё как мы любим!",
+
+  "item.brimm_armors.assault": "Assault Bulletproof",
+  "tooltip.assault": "Смертельный номер - взял укреп и чуть не помер",
+
+  "item.brimm_armors.horse": "715 Bulletproof",
+  "tooltip.horse": "Лучше уметь и не нуждаться, чем нуждаться и не уметь",
+
+  "item.brimm_armors.spn": "Speznaz Bulletproof",
+  "tooltip.spn": "Я - российский спецназ...",
+
+  "item.brimm_armors.atleti": "Atleti's Bulletproof",
+  "tooltip.atleti": "Простые Атлеты с периферии",
+
+  "item.brimm_armors.ratnik": "Ratnik Bulletproof",
+  "tooltip.ratnik": "Вот он я, привет войска",
+
+  "item.brimm_armors.ratnik_advance": "Ratnik 2 Bulletproof",
+  "tooltip.ratnik_advance": "415-ая база, ответьте",
+
+  "item.brimm_armors.veteran": "Ratnik Veteran Bulletproof",
+  "tooltip.veteran": "Заткнись, говно, я воевал",
+
+  "item.brimm_armors.nyyyaaaa": "Housemaid Bulletproof",
+  "tooltip.nyyyaaaa": "Каждый милитарист в глубине души маленькая девочка",
+
+  "item.brimm_armors.base_h": "Базовый Ops Core",
+  "tooltip.base_h": "",
+
+  "item.brimm_armors.assault_h": "Assault Helmet",
+  "tooltip.assault_h": "Мозговая Бакет Делюкс",
+
+  "item.brimm_armors.medic_h": "Medic Helmet",
+  "tooltip.medic_h": "С этим шлемом вы становитесь сексуальнее и лечите союзников",
+
+  "item.brimm_armors.brimm_armors_h": "Brimm Armors's Helmet",
+  "tooltip.brimm_armors_h": "Молодой. Специально утанкованный.",
+
+  "item.brimm_armors.infantry_h": "Пехотный Ops Core",
+  "tooltip.infantry_h": "",
+
+  "item.brimm_armors.gpnvg_h": "Black ops Helmet",
+  "tooltip.gpnvg_h": "Я больше не боюсь темноты!",
+
+  "item.brimm_armors.ghost_h": "Ghost's Helmet",
+  "tooltip.ghost_h": "Show my face?",
+
+  "item.brimm_armors.zch_h": "ЗШ-1-2",
+  "tooltip.zch_h": "",
+
+  "item.brimm_armors.zabralo_h": "ЗШ-1-2 с забралом",
+  "tooltip.zabralo_h": "Спецназ Тыла. Работаем!",
+
+  "item.brimm_armors.killa_h": "KIlla's Helmet",
+  "tooltip.killa_h": "И шлем у него такой.. не пропустишь.",
+
+  "item.brimm_armors.mk_ii_h": "МК-2",
+  "tooltip.mk_ii_h": "",
+
+  "item.brimm_armors.saper_h": "Сапёрный МК-2",
+  "tooltip.saper_h": "Не курить в шахте"
+}
