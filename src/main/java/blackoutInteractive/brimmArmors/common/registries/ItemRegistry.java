@@ -1675,25 +1675,6 @@ public class ItemRegistry {
                     noAuraEffects()
             ));
 
-    // --- BOOTS ---
-
-    public static final RegistryObject<BrimmArmor> TEST_B = registerItemAndExecute(
-            addTabAndSetCraft(armors_tab_content, ArmorItem.Type.BOOTS,
-                    ig(Items.STONE_AXE, 9)),
-            "test_b",
-            generateArmorSupplierBoots("test_b", BrimmRarity.COMMON,
-                    newRTSMComp()
-                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(-100f)),
-                    newRTSMComp()
-                            .set(RTSMatricesCompound.key_armor_render, newStandardArmorRenderMatrix())
-                            .set(RTSMatricesCompound.key_workbench_render, newStandardWorkbenchRenderMatrix(100f)),
-                    0f, 0f, 8, 240,
-                    noAddEffects(),
-                    noPreventEffects(),
-                    noAuraEffects()
-            ));
-
     // --- PATCHES ---
 
     public static final RegistryObject<ArmorPatch> DEBUG_PATCH = registerItemAndExecute((p, n) -> {},
@@ -2077,25 +2058,6 @@ public class ItemRegistry {
     			new ObjModelReference(ModelType.ARMOR_LEGGINGS_LEFT, unlocName+"_l", transformL.build())
     	};
     	return generateArmorSupplier0(ArmorItem.Type.LEGGINGS,
-    			unlocName, rarity,
-                models, toughness,
-                knockbackResistance, defenseValue, durabilityValue,
-                nopatches(), onWearEffects,
-                preventOnWearEffects, auraEffects
-            );
-    }
-    
-    private static Supplier<BrimmArmor> generateArmorSupplierBoots(
-            final String unlocName, final BrimmRarity rarity,
-            final RTSMatricesCompoundBuilder transformR, final RTSMatricesCompoundBuilder transformL, final float toughness,
-            final float knockbackResistance, final int defenseValue, final int durabilityValue,
-            final Collection<IAmplifiableApplicableEffect> onWearEffects,
-            final Collection<MobEffect> preventOnWearEffects, final Collection<IAuraEffect> auraEffects) {
-    	final ObjModelReference[] models = new ObjModelReference[] {
-    			new ObjModelReference(ModelType.ARMOR_BOOTS_RIGHT, unlocName+"_r", transformR.build()),
-    			new ObjModelReference(ModelType.ARMOR_BOOTS_LEFT, unlocName+"_l", transformL.build())
-    	};
-    	return generateArmorSupplier0(ArmorItem.Type.BOOTS,
     			unlocName, rarity,
                 models, toughness,
                 knockbackResistance, defenseValue, durabilityValue,
