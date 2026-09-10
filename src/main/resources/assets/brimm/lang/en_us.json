@@ -7,141 +7,257 @@
   "item.${mod_id}.diamond_plate": "Diamond Plate",
   "item.${mod_id}.nether_plate": "Netherite Plate",
 
-  "item.${mod_id}.nato": "Combined Arms Body Armor",
-  "tooltip.${mod_id}.nato": "You're in the army now",
+  "item.${mod_id}.base": "Modular Plate Carrier",
+  "tooltip.${mod_id}.base": "If you can still breathe, it’s working",
 
-  "item.${mod_id}.nato_ii": "Assault Combined Arms Body Armor",
-  "tooltip.${mod_id}.nato_ii": "Johnny, get your gun",
+  "item.${mod_id}.civilian": "Civilian Vest",
+  "tooltip.${mod_id}.civilian": "Armored Non-Combatant",
 
-  "item.${mod_id}.marine": "MarineRaiders Body Armor",
-  "tooltip.${mod_id}.marine": "Gung-ho!",
+  "item.${mod_id}.infantry": "TBD",
+  "tooltip.${mod_id}.infantry": "",
 
-  "item.${mod_id}.guard": "Guard Body Armor",
-  "tooltip.${mod_id}.guard": "Always Ready, Always There!",
+  "item.${mod_id}.ukrainian_basic": "Ukrainian Vest",
+  "tooltip.${mod_id}.ukrainian_basic": "",
 
-  "item.${mod_id}.saper": "Saper Body Armor",
-  "tooltip.${mod_id}.saper": "Explosives don't forgive mistakes.",
+  "item.${mod_id}.osprey": "Osprey Body Armor",
+  "tooltip.${mod_id}.osprey": "British armor, because tea won't stop bullets",
 
-  "item.${mod_id}.vanderer": "Vanderer Body Armor",
-  "tooltip.${mod_id}.vanderer": "Wandering in the desert...",
+  "item.${mod_id}.ratnik": "Ratnik Vest",
+  "tooltip.${mod_id}.ratnik": "",
+
+  "item.${mod_id}.vietnamese_basic": "Vietnamese Chest Rig",
+  "tooltip.${mod_id}.vietnamese_basic": "...but right now, they're speaking Vietnamese",
+
+  "item.${mod_id}.civilian_medic": "Medic Vest",
+  "tooltip.${mod_id}.civilian_medic": "",
 
   "item.${mod_id}.defender": "Defender Body Armor",
   "tooltip.${mod_id}.defender": "",
 
-  "item.${mod_id}.defender_ii": "Assault defender Body Armor",
-  "tooltip.${mod_id}.defender_ii": "",
+  "item.${mod_id}.ukrainian_mobilized": "Mobilized Ukrainian Vest",
+  "tooltip.${mod_id}.ukrainian_mobilized": "",
 
-  "item.${mod_id}.defender_iii": "Assault defender Body Armor 2",
+  "item.${mod_id}.defender_iii": "Mobilized Defender Body Armor",
   "tooltip.${mod_id}.defender_iii": "",
 
-  "item.${mod_id}.concord": "Concord's Body Armor",
-  "tooltip.${mod_id}.concord": "",
+  "item.${mod_id}.nato": "US Urban Camouflage Vest",
+  "tooltip.${mod_id}.nato": "Built for the concrete jungle",
 
-  "item.${mod_id}.medic": "Medic Body Armor",
-  "tooltip.${mod_id}.medic": "Heroes never die!",
+  "item.${mod_id}.nato_ii": "California National Guard Vest",
+  "tooltip.${mod_id}.nato_ii": "Fires, floods, and paperwork",
 
-  "item.${mod_id}.pmc": "PMC Body Armor",
-  "tooltip.${mod_id}.pmc": "Temperature +50. Everything we love!",
+  "item.${mod_id}.a_police": "US Police Vest",
+  "tooltip.${mod_id}.a_police": "Stop resisting!",
 
-  "item.${mod_id}.assault": "Assault Body Armor",
-  "tooltip.${mod_id}.assault": "Stops small talk and small arms fire",
+  "item.${mod_id}.r_police": "Russian Police Vest",
+  "tooltip.${mod_id}.r_police": "Crime pays. Everyone gets a cut",
 
-  "item.${mod_id}.horse": "517 Body Armor",
-  "tooltip.${mod_id}.horse": "If you can still breathe, it’s working",
-
-  "item.${mod_id}.spn": "Jagdkommando Body Armor",
-  "tooltip.${mod_id}.spn": "Standard Issue",
+  "item.${mod_id}.ratnik_mobilized": "Mobilized Ratnik Vest",
+  "tooltip.${mod_id}.ratnik_mobilized": "",
 
   "item.${mod_id}.atleti": "Atleti's Body Armor",
   "tooltip.${mod_id}.atleti": "Simple Athletes from the Periphery",
 
-  "item.${mod_id}.ratnik": "Ratnik Body Armor",
-  "tooltip.${mod_id}.ratnik": "Here I am, hello troops",
+  "item.${mod_id}.assault": "Assault Body Armor",
+  "tooltip.${mod_id}.assault": "Stops small talk and small arms fire",
 
-  "item.${mod_id}.ratnik_advance": "Ratnik 2 Body Armor",
-  "tooltip.${mod_id}.ratnik_advance": "Built-In Complaints Department",
+  "item.${mod_id}.pmc": "PMC Body Armor",
+  "tooltip.${mod_id}.pmc": "Temperature +50. Everything we love!",
 
-  "item.${mod_id}.veteran": "Ratnik Veteran Body Armor",
-  "tooltip.${mod_id}.veteran": "Shut up, I fought",
+  "item.${mod_id}.veteran_ratnik": "Veteran Ratnik Vest",
+  "tooltip.${mod_id}.veteran_ratnik": "",
 
-  "item.${mod_id}.ghost": "Ghost's Vest",
-  "tooltip.${mod_id}.ghost": "Bravo Six, going dark",
+  "item.${mod_id}.hazard_kit": "Hazard Suit Vest",
+  "tooltip.${mod_id}.hazard_kit": "Safety first. Panic second.",
 
-  "item.${mod_id}.nyyyaaaa": "Housemaid Body Armor",
-  "tooltip.${mod_id}.nyyyaaaa": "Every militarist is a little girl at heart",
+  "item.${mod_id}.ukrainian_veteran": "Veteran Ukrainian Vest",
+  "tooltip.${mod_id}.ukrainian_veteran": "",
 
-  "item.${mod_id}.base_h": "Special Ops Core",
-  "tooltip.${mod_id}.base_h": "",
+  "item.${mod_id}.swat_kit": "SWAT Vest",
+  "tooltip.${mod_id}.swat_kit": "Doors are just suggestions",
 
-  "item.${mod_id}.assault_h": "Assault Helmet",
-  "tooltip.${mod_id}.assault_h": "Brain Bucket Deluxe",
+  "item.${mod_id}.sobr_kit": "SOBR Vest",
+  "tooltip.${mod_id}.sobr_kit": "",
 
-  "item.${mod_id}.gasmask_h": "Gas Mask Helmet",
-  "tooltip.${mod_id}.gasmask_h": "Poisoning? What is that?",
-
-  "item.${mod_id}.medic_h": "Medic Helmet",
-  "tooltip.${mod_id}.medic_h": "This helmet makes you sexier and heals your allies",
-
-  "item.${mod_id}.concord_h": "Concord's Helmet",
-  "tooltip.${mod_id}.concord_h": "Specially tanked",
-
-  "item.${mod_id}.infantry_h": "Infantry Helmet",
-  "tooltip.${mod_id}.infantry_h": "",
-
-  "item.${mod_id}.gpnvg_h": "Black Ops Helmet",
-  "tooltip.${mod_id}.gpnvg_h": "I'm not afraid of the dark anymore!",
-
-  "item.${mod_id}.ghost_h": "Ghost's Helmet",
-  "tooltip.${mod_id}.ghost_h": "Show my face?",
-
-  "item.${mod_id}.zch_h": "ZSH12",
-  "tooltip.${mod_id}.zch_h": "",
-
-  "item.${mod_id}.zabralo_h": "ZSH12 w/ Visor",
-  "tooltip.${mod_id}.zabralo_h": "Special Forces. We are working!",
-
-  "item.${mod_id}.killa_h": "Killa's Helmet",
-  "tooltip.${mod_id}.killa_h": "Forged for endurance. Worn by madness",
-
-  "item.${mod_id}.mk_ii_h": "МК-2",
-  "tooltip.${mod_id}.mk_ii_h": "",
-
-  "item.${mod_id}.saper_h": "Saper MK-2",
-  "tooltip.${mod_id}.saper_h": "No smoking in the mines",
-
-  "item.${mod_id}.veteran_h": "Ratnik Veteran Helmet",
-  "tooltip.${mod_id}.veteran_h": "The helmet of someone who learned when to duck",
-
-  "item.${mod_id}.pmc_h": "PMC Helmet",
-  "tooltip.${mod_id}.pmc_h": "Reliable protection for wars that never make the news",
-
-  "item.${mod_id}.nato_h": "Combined Arms Helmet",
-  "tooltip.${mod_id}.nato_h": "Optimized for steel, glass, and asphalt",
-
-  "item.${mod_id}.six_b_four_seven_h": "Veteran 6B47 Helmet",
-  "tooltip.${mod_id}.six_b_four_seven_h": "Worn by someone who stopped counting deployments",
-
-  "item.${mod_id}.six_b_four_seven_dark_h": "6B47 Helmet",
-  "tooltip.${mod_id}.six_b_four_seven_dark_h": "",
-
-  "item.${mod_id}.ratnik_h": "Ratnik Helmet",
-  "tooltip.${mod_id}.ratnik_h": "",
-
-  "item.${mod_id}.airframe_h": "Airframe Helmet",
-  "tooltip.${mod_id}.airframe_h": "Designed to keep you moving",
-
-  "item.${mod_id}.tshfour_h": "TSh-4 Ground Crew Helmet",
-  "tooltip.${mod_id}.tshfour_h": "Smells like oil, smells like diesel",
-
-  "item.${mod_id}.tshfour_green_h": "TSh-4 Forest Green Helmet",
-  "tooltip.${mod_id}.tshfour_green_h": "Camouflage for steel coffins",
-
-  "item.${mod_id}.press_h": "Press PASGT Helmet",
-  "tooltip.${mod_id}.press_h": "Journalism-grade protection",
+  "item.${mod_id}.cqb_kit": "CQB Body Armor",
+  "tooltip.${mod_id}.cqb_kit": "The wrong kind of room service",
 
   "item.${mod_id}.press": "Press Body Armor",
   "tooltip.${mod_id}.press": "You're here to document it, not survive it",
 
+  "item.${mod_id}.spn": "Jagdkommando Body Armor",
+  "tooltip.${mod_id}.spn": "Austrian Engineering",
+
+  "item.${mod_id}.ratnik_veteran": "Veteran Ratnik Vest",
+  "tooltip.${mod_id}.ratnik_veteran": "",
+
+  "item.${mod_id}.horse": "517 Body Armor",
+  "tooltip.${mod_id}.horse": "",
+
+  "item.${mod_id}.guard": "Guard Body Armor",
+  "tooltip.${mod_id}.guard": "Always Ready, Always There!",
+
+  "item.${mod_id}.marine": "MarineRaiders Body Armor",
+  "tooltip.${mod_id}.marine": "",
+
+  "item.${mod_id}.tmspmg": "TMSPMG Field Medic",
+  "tooltip.${mod_id}.tmspmg": "Saving the bloody, broken, and bruised",
+
+  "item.${mod_id}.berserk": "Berserk Vest",
+  "tooltip.${mod_id}.berserk": "Scotland's Finest Export",
+
+  "item.${mod_id}.vanderer": "Vanderer Body Armor",
+  "tooltip.${mod_id}.vanderer": "",
+
+  "item.${mod_id}.bydlovka": "Bydlovka Vest",
+  "tooltip.${mod_id}.bydlovka": "Rednecks of Europe",
+
+  "item.${mod_id}.concord": "Concord's Body Armor",
+  "tooltip.${mod_id}.concord": "He skinned a bear for this",
+
+  "item.${mod_id}.taro": "Taro's Body Armor",
+  "tooltip.${mod_id}.taro": "",
+
+  "item.${mod_id}.maid": "Housemaid Body Armor",
+  "tooltip.${mod_id}.maid": "Every militarist is a little girl at heart",
+
+  "item.${mod_id}.medic": "Futuristic Medic Body Armor",
+  "tooltip.${mod_id}.medic": "Heroes never die!",
+
+  "item.${mod_id}.killa": "Killa's Vest",
+  "tooltip.${mod_id}.killa": "Please enjoy your shopping experience",
+
+  "item.${mod_id}.saper": "Saper Body Armor",
+  "tooltip.${mod_id}.saper": "Explosives don't forgive mistakes.",
+
+  "item.${mod_id}.ratnik_advance": "Ratnik Scout Body Armor",
+  "tooltip.${mod_id}.ratnik_advance": "Built-In Complaints Department",
+
+  "item.${mod_id}.ghost": "Ghost's Vest",
+  "tooltip.${mod_id}.ghost": "Bravo Six, going dark",
+
+  "item.${mod_id}.base_h": "Special Ops Core",
+  "tooltip.${mod_id}.base_h": "",
+
+  "item.${mod_id}.civilian_h": "Civilian Helmet",
+  "tooltip.${mod_id}.civilian_h": "",
+
+  "item.${mod_id}.infantry_h": "US Infantry Helmet",
+  "tooltip.${mod_id}.infantry_h": "",
+
+  "item.${mod_id}.ukrainian_basic_h": "Ukrainian Helmet",
+  "tooltip.${mod_id}.ukrainian_basic_h": "",
+
+  "item.${mod_id}.osprey_h": "Osprey Helmet",
+  "tooltip.${mod_id}.osprey_h": "For a proper British egghead.",
+
+  "item.${mod_id}.six_b_four_seven_dark_h": "Ratnik Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_dark_h": "",
+
+  "item.${mod_id}.vietnamese_basic_h": "Vietnamese Nón Lá",
+  "tooltip.${mod_id}.vietnamese_basic_h": "I am the Lorax and I speak for the trees...",
+
+  "item.${mod_id}.zch_h": "ZSH12 (Defender)",
+  "tooltip.${mod_id}.zch_h": "",
+
+  "item.${mod_id}.tshfour_green_h": "TSh-4 Forest Green Helmet",
+  "tooltip.${mod_id}.tshfour_green_h": "Camouflage for steel coffins",
+
+  "item.${mod_id}.civilian_medic_h": "Civilian Medic Helmet",
+  "tooltip.${mod_id}.civilian_medic_h": "Protect the Heavy!",
+
+  "item.${mod_id}.ukrainian_mobilized_h": "Mobilized Ukrainian Helmet",
+  "tooltip.${mod_id}.ukrainian_mobilized_h": "",
+
+  "item.${mod_id}.zabralo_h": "ZSH12 Visor (Defender)",
+  "tooltip.${mod_id}.zabralo_h": "",
+
+  "item.${mod_id}.a_police_h": "American Police Hat",
+  "tooltip.${mod_id}.a_police_h": "Authority looks surprisingly wearable",
+
+  "item.${mod_id}.r_police_h": "Russian Police Hat",
+  "tooltip.${mod_id}.r_police_h": "Your cooperation has a fee",
+
+  "item.${mod_id}.ratnik_mobilized_h": "Mobilized Ratnik Helmet",
+  "tooltip.${mod_id}.ratnik_mobilized_h": "",
+
+  "item.${mod_id}.airframe_h": "Airframe Helmet",
+  "tooltip.${mod_id}.airframe_h": "Designed to keep you moving",
+
+  "item.${mod_id}.assault_h": "Assault Helmet",
+  "tooltip.${mod_id}.assault_h": "Brain Bucket Deluxe",
+
+  "item.${mod_id}.pmc_h": "PMC Helmet",
+  "tooltip.${mod_id}.pmc_h": "Reliable protection for wars that never make the news",
+
+  "item.${mod_id}.tshfour_h": "TSh-4 Ground Crew Helmet",
+  "tooltip.${mod_id}.tshfour_h": "Smells like oil, smells like diesel",
+
+  "item.${mod_id}.ratnik_veteran_h": "Veteran Ratnik Helmet",
+  "tooltip.${mod_id}.ratnik_veteran_h": "",
+
+  "item.${mod_id}.hazard_kit_h": "Hazard Suit Helmet",
+  "tooltip.${mod_id}.hazard_kit_h": "",
+
+  "item.${mod_id}.ukrainian_veteran_h": "Veteran Ukrainian Helmet",
+  "tooltip.${mod_id}.ukrainian_veteran_h": "",
+
+  "item.${mod_id}.swat_kit_h": "SWAT Helmet",
+  "tooltip.${mod_id}.swat_kit_h": "Diplomacy with guns",
+
+  "item.${mod_id}.sobr_kit_h": "SOBR Helmet",
+  "tooltip.${mod_id}.sobr_kit_h": "",
+
+  "item.${mod_id}.cqb_kit_h": "CQB Helmet",
+  "tooltip.${mod_id}.cqb_kit_h": "",
+
+  "item.${mod_id}.press_h": "Press PASGT Helmet",
+  "tooltip.${mod_id}.press_h": "Journalism-grade protection",
+
+  "item.${mod_id}.gasmask_h": "Gas Mask Helmet",
+  "tooltip.${mod_id}.gasmask_h": "Poisoning? What is that?",
+
+  "item.${mod_id}.gpnvg_h": "Black Ops Helmet",
+  "tooltip.${mod_id}.gpnvg_h": "A face only night vision could love",
+
+  "item.${mod_id}.tmspmg_h": "TMSPMG Field Medic Hat",
+  "tooltip.${mod_id}.tmspmg_h": "The squad’s designated problem solver",
+
+  "item.${mod_id}.berserk_h": "Berserk Beret",
+  "tooltip.${mod_id}.berserk_h": "Proudly British. Proudly SAS.",
+
+  "item.${mod_id}.vanderer_h": "Vanderer Headwear",
+  "tooltip.${mod_id}.vanderer_h": "",
+
+  "item.${mod_id}.bydlovka_h": "Bydlovka Helmet",
+  "tooltip.${mod_id}.bydlovka_h": "",
+
+  "item.${mod_id}.concord_h": "Concord's Helmet",
+  "tooltip.${mod_id}.concord_h": "",
+
+  "item.${mod_id}.taro_h": "Taro's Helmet",
+  "tooltip.${mod_id}.taro_h": "",
+
+  "item.${mod_id}.medic_h": "Futuristic Medic Helmet",
+  "tooltip.${mod_id}.medic_h": "This helmet makes you sexier and heals your allies",
+
+  "item.${mod_id}.maid_h": "Housemaid Helmet",
+  "tooltip.${mod_id}.maid_h": "Big-Back Activities",
+
+  "item.${mod_id}.killa_h": "Killa's Helmet",
+  "tooltip.${mod_id}.killa_h": "Forged for endurance. Worn by madness",
+
+  "item.${mod_id}.saper_h": "Saper MK-2",
+  "tooltip.${mod_id}.saper_h": "No smoking in the mines",
+
+  "item.${mod_id}.ghost_h": "Ghost's Helmet",
+  "tooltip.${mod_id}.ghost_h": "Show my face?",
+
+  "item.${mod_id}.nato_h": "US Urban Camouflage Helmet",
+  "tooltip.${mod_id}.nato_h": "Optimized for steel, glass, and asphalt",
+
+  "item.${mod_id}.six_b_four_seven_h": "Veteran 6B47 Helmet",
+  "tooltip.${mod_id}.six_b_four_seven_h": "Worn by someone who stopped counting deployments",
 
   "item.${mod_id}.new_york_patch": "27th Infantry Patch",
   "tooltip.${mod_id}.new_york_patch": "",
@@ -235,19 +351,10 @@
   "screen.${mod_id}.workbench.section.plates": "Armor Plates",
   "screen.${mod_id}.workbench.section.chestplates": "Chestplates",
   "screen.${mod_id}.workbench.section.helmets": "Helmets",
-  "screen.${mod_id}.workbench.section.leggings": "Leggings",
-  "screen.${mod_id}.workbench.section.boots": "Boots",
   "screen.${mod_id}.workbench.section.patches": "Patches",
   
   "tooltip.${mod_id}.armors.current_patch": "Current patch",
-  "tooltip.${mod_id}.armors.no_patch_supported": "This armor does not support patches.",
   
-  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch",
-  
-  "message.${mod_id}.version_check_outdated": "A new release of BRIMM is live, go check it out on CurseForge!",
-  "message.${mod_id}.version_check_error": "An error occurred while checking whether BRIMM is up to date.",
-  "message.${mod_id}.version_check_incomplete": "Failed to verify whether BRIMM is up to date (this is not an error).",
-  "message.${mod_id}.version_check_good": "BRIMM is up to date!",
-  "message.${mod_id}.version_check_overdated": "The BRIMM version is newer than expected. Please report this to the developers."
+  "item.${mod_id}.patches_adjuster_debug_patch": "Debug Patch"
   
 }
